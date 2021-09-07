@@ -1,0 +1,97 @@
+﻿<style>
+    .k-upload-status {
+        display: none;
+    }
+</style>
+
+<form class="form" id="CMUser">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultTxt">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name"></label>
+                        <input type="text" name="Name" class="form-control input-sm" id="Name" />
+                    </div>
+                    <div class="  mt-1 is-helpful" data-helper="Enter_your_Name" data-error="Please_enter_your_Name"></div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos " string="Mobile"></label>
+                        <input type="text" name="PhoneNumber" class="form-control input-sm" id="PhoneNumber" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    </div>
+                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-12 col-lg-6 ">
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="UserName"></label>
+                        <input type="email" name="UserNameEmail" class="form-control input-sm" id="UserNameEmail" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_email_format_right" data-error="Please_enter_your_email"></div>
+                </div>
+            </div>
+
+            <div class="text-left form-group mb-3">
+                <div class="input-wrap is-required ">
+                    <label class="label-input-pos required-label " for="" string="Roles"></label>
+
+                    <select name="RoleID" class="w-100 input-sm" id="RoleID">
+                    </select>
+
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="PleaseSelect" data-error="PleaseSelect"></div>
+            </div>
+
+            <div class="row  mb-2">
+                <div class="col-md-12 col-lg-6">
+
+                    <div class="control-group">
+                        <label class="control control--checkbox">
+                            <p string="SuperAdmin"></p>
+                            <input type="checkbox" id="IsSuperAdmin" onclick="ClickIsSuperAdmin()"/>
+                            <div class="control__indicator">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="control-group">
+                        <label class="control control--checkbox">
+                            <p string="InActive"></p>
+                            <input type="checkbox" id="InActive" />
+                            <div class="control__indicator">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="Id" value="" />
+    <input type="hidden" id="UserID" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+        <a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+    </div>
+
+</form>
+
+<script src="../../Scripts/CMPages/CMUser.js"></script>
+

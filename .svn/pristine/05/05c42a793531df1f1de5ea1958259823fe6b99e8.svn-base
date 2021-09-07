@@ -1,0 +1,20 @@
+﻿<div class="page-body pb-4 bg-transparent">
+    <div style="text-align:center;">
+        <div class="checkmark-circle">
+
+            <div class="success success--big"></div>
+        </div>
+
+    </div>
+    <div class="head">
+        <h2 style="margin-top:7px;" string="ResetEmailSuccess">            
+        </h2>
+    </div>
+</div>
+<div class="mb-4 d-flex ">
+    <button type="button" class="m-auto w-50 btn btn-lg  bg-lo " onclick="LoadContent('Login')" string="Login">login</button>
+</div>
+
+<script type="text/javascript">
+    window.history.pushState(null, null, window.location.pathname);
+</script>

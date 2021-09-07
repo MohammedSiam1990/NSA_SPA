@@ -1,0 +1,375 @@
+﻿
+$(document).ready(function () {
+    sessionStorage['CustTypeID'] = '';
+    sessionStorage['selectedRows'] = '';
+    FillDBSTRINGPage('CustomerForm');
+    successCallBack('');
+
+});
+
+var successCallBack = function (data) {
+
+    var token = sessionStorage['token'];
+    var URL = $URL_Customer + "GetCustomer";
+    var CompanyID = sessionStorage['CompanyID'];
+
+
+
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: function (options) {
+                $.ajax({
+                    type: 'Get',
+                    url: URL,
+                    headers: {
+                        Authorization: 'bearer ' + token
+                    },
+                    async: false,
+                    data: { companyId: CompanyID, Lang: $Lang },
+                    success: function (data, status, xhr) {
+
+
+                        options.success(data.datalist.Customer);
+                        var i;
+                        var TypeIDs = [];
+                        var GenderIDs = [];
+                        for (i = 0; i < data.datalist.Customer.length; i++) {
+
+                             
+                            if (data.datalist[i].GenderID != null) {
+                                GenderIDs.push(data.datalist.Customer[i].GenderID)
+                            }
+                        }
+                        
+                        localStorage.setItem("GenderIDs", GenderIDs); 
+
+                    }
+                });
+            }
+        },
+        pageSize: 25,
+        schema: {
+            model: {
+                id: "CustomerID",
+                fields: {
+                    CustomerID: { type: "number" },
+                    CreateDate: { type: "date" },
+                    CreateDateS: { type: "string" },
+                }
+            }
+        }
+    });
+
+
+    var toolBarBtn = [];
+    toolBarBtn.push({
+        name: "search", text: DBSTRING['Search']
+    });
+    toolBarBtn.push({
+        name: "excel", template: '<div class="d-flex flex-column"><a  class="k-grid-excel icons-tables button1 spin circle" ><img class="" src="../../assets/images/icon/export-excel.svg" width="40" height="40"></img></a><span style ="width:100px;" class="title-table mt-1"  > ' + DBSTRING['ExporttoExcel'] + '</span></div>'//k-state-disabled
+    });
+
+    var obj = { "text": "" };
+
+
+
+    var list_CustomerTypes = GetLookup('Lookups');//ItemComponentType
+    list_CustomerTypes = list_CustomerTypes.filter(function (el) {
+        return el.StatusID === $CustomerTypes
+    });
+  
+     
+    
+
+    if (sessionStorage['CustTypeID'] === undefined || sessionStorage['CustTypeID'] === null ||
+        sessionStorage['CustTypeID'] === '0' || sessionStorage['CustTypeID'] === '') {
+        sessionStorage['CustTypeID'] = 1
+    }
+
+   // $('#SubpageTitle').parent().show();
+
+   
+    var strtemplateBtn = '<div id="DivBtn2" class="div-icons">';
+    $.each(list_CustomerTypes, function () {
+      
+        var selected = ''; 
+        if (this.id.toString() === sessionStorage['CustTypeID'].toString()) {
+            selected = "btn-disabled";
+            $('#pageTitle').html($Lang === 'ar' ? this.NameAr : this.Name);
+            obj.className = "btnActive";
+        }
+//        obj.name = this.id.toString();
+       // obj.template = '<div class="mr-3 ml-3"><a   class="' + selected + '  TypeIdClass k-grid-' + this.id + ' icons-tables icons-tables  button1 spin circle" ><img class="" src="../../assets/images/icon/' + this.Name + '.svg" width="40" height="40"></img></a> <span class="title-table mt-1" string="' + this.NameAr + ' " > ' + this.NameAr + '</span></div>'//rounded-circle 
+        strtemplateBtn += '<div class="d-flex flex-column align-items-center mr-3 ml-3"><a class="' + selected + ' TypeIdClass k-grid-' + this.id + ' icons-tables  button1 spin circle " ><img class="" src="../../assets/images/icon/' + this.Name + '.svg" width="40" height="40"></img>  </a> <span class="title-table mt-1"  > ' + ($Lang === 'ar' ? this.NameAr : this.Name) + '</span></div>'
+        obj.name = this.id.toString();
+        // toolBarBtn.push(obj)
+    });
+    obj = { "name": "", template: "" };//"text": "", "className": "" };
+    obj.text = 'Group';
+
+
+    obj.name = 'Group';
+    obj.template = strtemplateBtn
+    toolBarBtn.push(obj)
+  
+
+    grid = $("#grid").kendoGrid({
+        dataSource: dataSource,
+        height: 550,
+        groupable: true,
+        sortable: true,
+        change: function (e, args) {
+
+            var grid = $("#grid").getKendoGrid()
+            selectedItem = grid.dataItem(grid.select()).ItemID;
+
+            sessionStorage['selectedRows'] = selectedItem;
+
+        },
+        toolbar: toolBarBtn,
+
+        dataBound: function (e) {
+            dataBound_Grid(e); 
+        }, 
+        
+        excel: {
+            allPages: true
+        },
+        search: {
+            fields: ["CreateDateS", "CustomerName", "CustomerNameAr", ($Lang === 'ar' ? "TypeNameAr" : "TypeName"), $Lang === 'ar' ? "StatusNameAr" : "StatusName", "LastName"]
+        },
+        pageable: {
+            refresh: true,
+            buttonCount: 5,
+            pageSizes: $pageSizes
+        },
+        columns: [{
+            field: "CustomerName",
+            title: DBSTRING['NameEn'],
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        }, {
+            field: "CustomerNameAr",
+            title: DBSTRING['NameAr'],
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        },
+
+        {
+            field: $Lang === 'ar' ? "TypeNameAr" : "TypeName",
+            title: DBSTRING['Types'],
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        },
+        {
+            field: $Lang === 'ar' ? "StatusNameAr" : "StatusName",
+            title: DBSTRING['Status'],
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        },
+        {
+            field: "CreateDate",
+            title: DBSTRING['CreateDate'],
+            format: "{0:dd/MM/yyyy}",
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        }, {
+            command: [
+                {
+                    name: 'edit',
+                    text: '',
+                    className: "btn-primary ",
+                    click: function (e) {
+                        // e.target is the DOM element which represents the button
+                        var tr = $(e.target).closest("tr"); // get the current table row (tr)
+                        // get the data bound to the current table row
+                        var data = this.dataItem(tr); 
+                        sessionStorage['CustTypeID'] = data.CustTypeID 
+                        LoadContentChild('CMCustomer', data);
+                    }
+                }, 
+                {
+                    name: 'Address',
+                    text: "<span class='fa fa-code-branch'></span>",
+                    className: "btn-info",
+
+                    click: function (e) {
+                        // e.target is the DOM element which represents the button
+                        var tr = $(e.target).closest("tr"); // get the current table row (tr)
+                        var grid = $("#grid").data("kendoGrid");
+                        grid.select(tr)
+
+                        // get the data bound to the current table row
+                        var data = this.dataItem(tr);
+                        LoadContentChild('CMAddress', data);
+                    }
+                }
+            ],
+
+            title: "<span class='fa btn btn-success fa-plus-addNew k-icon k-i-plus' title='" + DBSTRING['New'] + "'> </span>",
+            width: "260px",
+            headerAttributes: {
+                "class": "Center",
+                style: "text-align: center;"
+            },
+            attributes: {
+                "class": "Center"
+            }
+        }
+        ]
+    });
+
+    grid.on("click", ".fa-plus-addNew", function (e) {
+        LoadContentChild('CMCustomer');
+    });
+    var gridIG = $("#grid").data("kendoGrid");
+    var dataSourceIG = gridIG.dataSource;
+    var filter = SetFilterCustBtn();
+    dataSourceIG.filter(filter);
+
+}
+
+var dataBound_Grid = function (e) {
+  
+    $('.TypeIdClass').unbind("click");
+    $('.TypeIdClass').bind("click", function () {
+        $('.TypeIdClass').removeClass("btn-disabled");
+        $(this).addClass("btn-disabled");
+        var filterValue = 1;
+
+        if ($(this).hasClass('k-grid-1')) {
+            filterValue = 1;
+            $('#pageTitle').html($(this).parent().find('span').html());
+        }
+        else if ($(this).hasClass('k-grid-2')) {
+            filterValue = 2;
+            $('#pageTitle').html($(this).parent().find('span').html());
+        }
+        
+
+
+        //sessionStorage['selectedRows'] = '';
+        //if (!$(this).is(':checkbox')) {
+        //    $('.TypeIdClass').not(this, ' input:checkbox').removeClass("btnActive");
+
+        //    $(this).not(' input:checkbox').toggleClass("btnActive");
+        //}
+        //if (sessionStorage['CustTypeID'] === undefined || sessionStorage['CustTypeID'] === null) {
+        //    sessionStorage['CustTypeID'] = 0;
+        //}
+        //var filterValue = $(this).is(':checkbox') ? sessionStorage['CustTypeID'] : 0;
+        //if ($(this).hasClass('k-grid-1') && $(this).hasClass('btnActive')) {
+        //    filterValue = 1;
+        //}
+        //else if ($(this).hasClass('k-grid-2') && $(this).hasClass('btnActive')) {
+        //    filterValue = 2;
+        //}
+        sessionStorage['CustTypeID'] = filterValue;
+        valueSearch = $(".k-grid-toolbar .k-grid-search input").val();
+        if (valueSearch !== '') {
+            $(".k-grid-toolbar .k-grid-search input").val(valueSearch).trigger("input")
+        }
+        else {
+
+            var gridIG = $("#grid").data("kendoGrid");
+            var dataSourceIG = gridIG.dataSource;
+
+            dataSourceIG.filter(
+                {
+                    field: "CustTypeID",
+                    operator: "eq",
+                    value: filterValue
+                });
+
+            //var gridIG = $("#grid").data("kendoGrid");
+            //var dataSourceIG = gridIG.dataSource;
+            //var filter = SetFilterItemBtn();
+            //dataSourceIG.filter(filter);
+        }
+    });
+
+   
+    if (sessionStorage['selectedRows']) {
+
+        var dataItem = this.dataSource.get(sessionStorage['selectedRows']);
+        this.select($('[data-uid=' + dataItem.uid + ']'));
+    }
+
+    
+
+}
+
+var SetFilterCustBtn = function () {
+  
+    var filterValue = parseInt(sessionStorage['CustTypeID']);
+    var filter = {};
+    if (filterValue === 1) {
+
+        filter =
+        {
+            logic: "and",
+            filters: [
+                {
+                    field: "CustTypeID",
+                    operator: "eq",
+                    value: 1
+                }
+            ]
+        }
+    }
+    else if (filterValue === 2) {
+        filter =
+        {
+            logic: "and",
+            filters: [
+                {
+                    field: "CustTypeID",
+                    operator: "eq",
+                    value: 2
+                }
+            ]
+        }
+    }
+    else {
+        filter =
+        {
+            logic: "and",
+            filters: [
+                {
+                    field: "CustTypeID",
+                    operator: "eq",
+                    value: 1
+                }
+            ]
+        }
+    }  
+
+
+    return filter;
+}
+

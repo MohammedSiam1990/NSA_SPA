@@ -1,0 +1,146 @@
+﻿
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta charset="utf-8">
+    <title>Pos</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css" integrity="sha256-1dcYWPAIBzLgOJlRNpMFWi1aIEWZU490to6kkbDmFM8=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link href="../../assets/css/kendo/2020.2.617/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../assets/css/kendo/2020.2.617/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/css/kendo/2020.2.617/kendo.default.mobile.min.css.css" rel="stylesheet" />
+    <link href="../../assets/css/kendo/2020.2.617/kendo.rtl.min.css" rel="stylesheet" />
+
+    <link href="../../assets/css/flag.min.css" rel="stylesheet" />
+
+    <link id="bootstrap" href="" rel="stylesheet" />
+    <link href="../../assets/css/styles.css" rel="stylesheet" />
+    <link id="styleCss" href="" rel="stylesheet" />
+    <link id="Stylevaledation" href="" rel="stylesheet" />
+
+    <script src="../../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../../assets/js/kendo/2020.2.617/kendo.all.min.js"></script>
+
+    <style>
+        /*  .k-dropdown {
+                    background-color: transparent !important;
+                }
+
+                    .k-dropdown .k-dropdown-wrap, .k-dropdown.k-state-border-down .k-dropdown-wrap.k-state-border-down {
+                        padding: 5px !important;
+                        border: 1px solid #959694 !important;
+                        border-radius: 20px 20px 20px 20px !important;
+                    }
+
+                        .k-dropdown .k-dropdown-wrap .k-select, .k-ie .k-dropdown .k-dropdown-wrap .k-select, .k-ff .k-dropdown .k-dropdown-wrap .k-select {
+                            background-color: #f6f7ef !important;
+                            padding: 8px !important;
+                            border-left: solid #959694 thin !important;
+                            border-right: solid #959694 thin !important;
+                            border-radius: 0 20px 20px 20px !important;
+                        }*/
+
+        /*[data-role="popup"] {
+                    background-color: #fff !important;
+                    border-radius: 1px !important;
+                }*/
+
+        /* [data-role="popup"] ul li[class="k-item k-state-hover"], [data-role="popup"] ul li[class="k-item k-state-selected k-state-focused"] {
+                        border-radius: 0px;
+                    }*/
+    </style>
+</head>
+
+<body>
+            <div class="mat-app-background" style="display:none">
+                <div class=" row-direction1" id="MainAccountCss">
+
+                    <div class="fixed-topnav">
+                        <div class="col-12 col-md-12 col-sm-12 ">
+                            <div class=" select-account">
+
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+
+                                <select onchange="ChangeLang()" id="selLang">
+                                    <option value="en" string="En">
+                                    </option>
+                                    <option value="ar" string="Ar" selected>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-5 accountformdisplay">
+                        <div class="centering-div">
+
+                            <div class="d-flex ">
+                                <div class="dropdown mr-1 mb-3 w-100">
+                                    <div class="row d-flex justify-content-center  mb-1" style='direction: ltr;'>
+                                        <div class="col-12 col-md-10 col-sm-10  d-flex justify-content-center">
+                                            <div class="heading-login mb-3 ">
+                                                <img src="../../assets/images/arqami_logo.svg" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row row-direction1 mb-3 w-75 justify-content-center">
+                                <div class="col-md-12 ">
+                                    <div class="form-login-container">
+                                        <div class="container" style="padding:0">
+                                            <div class="card-acount brand">
+                                                <div class="card-body text-center">
+                                                    <div class="alert alert-dismissible fade  hide" role="alert" id="ResultMessage">
+                                                        <div id="ResultTxt">
+
+                                                        </div>
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-12 d-block" id="AccountContent">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+</body>
+
+<script src="../../Scripts/Cmn/Global.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../Scripts/Cmn/jquery.cookie.js"></script>
+    <script src="../../Scripts/Cmn/Shared.js"></script>
+
+    <script src="../../Scripts/pages/Account.js"></script>
+  
+
+</html>
+

@@ -1,0 +1,36 @@
+﻿
+    <form class="loginFormAdmin form" id="ForgetPassForm">
+        <div class="text-left form-group mb-4">
+
+            <div class="  input-wrap is-required">
+                <label class="label-input-pos  required-label" for="" string="Email"></label>
+                <input type="email" name="email" id="Email" class="form-control input-sm">
+
+                <span class="icon validation small error hide">
+
+                </span>
+
+            </div>
+            <div class=" mt-1 is-helpful" data-helper="Enter_email_format_right" data-error="Please_enter_your_email"></div>
+
+
+        </div>
+
+        <div class="form-group mb-6">
+            <button type="button" class="w-100 btn btn-lg mb-4 bg-lo" onclick="ForgetSend()" string="Send"></button>
+        </div>
+
+        <div class="M_welocmDiv mt-4">
+            <label class=" text-center font-Bold text-black" string="ReturnTo">
+
+            </label>
+            <label class="ml-2 text-center font-Light arqami-color">
+                <a onclick="LoadContent('Login')" class="arqami-color" string="Login">
+                </a>
+            </label>
+        </div>
+    </form>
+
+<script src="../../Scripts/Cmn/Global.js"></script>
+
+<script src="../../assets/js/Validations/Validation.js"></script>

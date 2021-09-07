@@ -1,0 +1,226 @@
+﻿<style>
+ /*   .k-upload-status {
+        display: none;
+    }*/
+</style>
+
+<form class=" form" id="CMBranches">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultTxt">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-4 ">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Num"></label>
+                        <input type="text" name="BranchNum" class="form-control input-sm" id="BranchNum" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameEn"></label>
+                        <input type="text" name="BranchName" class="form-control input-sm" id="BranchName" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="form-group  mb-3">
+                    <label class="label-input-pos  " for="" string="Country"></label>
+
+                    <div class="form-group">
+                        <select name="Country" class="w-100 input-sm" id="Country">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="form-group  mb-3">
+                    <label class="label-input-pos  " for="" string="City"></label>
+
+                    <div class="form-group">
+                        <select name="City" id="City" class="w-100 input-sm">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="form-group  mb-3">
+                    <label class="label-input-pos  " for="" string="District"></label>
+
+                    <div class="form-group">
+                        <select name="DistrictID" id="DistrictID" class="w-100 input-sm">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap ">
+                        <label class="label-input-pos" string="Longitude" for="">longitude</label>
+                        <input type="text" class="form-control input-sm" id="Longitude" name="Longitude" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    </div>
+                    <!--<div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>-->
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-md-12 col-lg-4 ">
+            <div class="text-left form-group mb-3">
+                <div class="input-wrap is-required  is-required">
+                    <label class="label-input-pos required-label " for="" string="BranchType"></label>
+                   
+                        <select name="TypeID" class="w-100 input-sm" id="TypeID">
+                        </select>
+                   
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="PlzSelectType" data-error="PlzSelectType"></div>
+            </div>
+
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameAr"></label>
+                        <input type="text" name="BranchNameAr" class="form-control input-sm" id="BranchNameAr" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group ">
+                <div class="text-left form-group  mb-3 ">
+                    <div class="input-wrap is-required  ">
+                        <label class="label-input-pos required-label " for="" string="MajorServiceTypes"></label>
+                        <div class="form-group ">
+                        <select name="MST" class="form-control input-sm " id="MST">
+                        </select>
+                        </div>
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="SelecteMajorServiceTypes" data-error="SelecteMajorServiceTypes"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group  mb-3">
+                    <label class="label-input-pos  " for="" string="Currency"></label>
+                    <div class="form-group">
+                        <select name="Currency" class="w-100 input-sm" id="Currency">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="form-group mb-3">
+                    <label class="label-input-pos" string="Address" for=""></label>
+                    <input type="text" class="form-control input-sm" id="Address" name="Address" />
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap ">
+                        <label class="label-input-pos " string="Latitude"></label>
+                        <input type="text" class="form-control input-sm" id="Latitude" name="Latitude" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    </div>
+                    <!--<div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>-->
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class=" col-md-12 col-lg-6 hide">
+                    <div class="control-group">
+                        <label class="control control--checkbox">
+                            <p string="InActive"></p>
+                            <input type="checkbox" id="InActive" name="InActive" />
+                            <div class="control__indicator">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 col-lg-4 ">
+       
+
+            <div class="col-md-12 col-lg-12 ">
+
+                <div class="row form-group">
+                    <div class=" col-sm-12 pl-4 pr-4">
+
+                        <div>
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body" style="text-align: center; padding: 10px;">
+
+                                        <div>
+                                            <img src="../../assets/images/bg1.png" id="preview" class="img-thumbnail" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName').val(''); }">
+                                            <button data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+                                        </div>
+                                        <div class="row imgbtn mt-2 container m-0">
+
+                                            <input type="file" name="files" id="photos" class="  btn  btn-primary p-0" style="max-height:20px" />
+                                            <input type="hidden" id="ImageName" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 col-lg-4 ">
+
+            
+
+
+           
+
+            
+        </div>
+    </div>
+
+    <input type="hidden" id="BranchID" value="" />
+    <input type="hidden" id="StatusID" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+        <a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+    </div>
+
+
+
+
+
+
+</form>
+
+<script src="../../Scripts/CMPages/CMBranches.js"></script>
+

@@ -1,0 +1,391 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BC9FC98-F509-43C7-A65F-96E2FA76E4EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebPOS</RootNamespace>
+    <AssemblyName>WebPOS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44362</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebApiContrib.Formatting.Jsonp, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiContrib.Formatting.Jsonp.3.0.2\lib\net45\WebApiContrib.Formatting.Jsonp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\Ar-StyleSheet.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\bootstrap.min.rtl.css" />
+    <Content Include="assets\css\e-StyleSheet.css" />
+    <Content Include="assets\css\flag.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\editor.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\imagebrowser.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\indeterminate.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\loading-image.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\loading.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\loading_2x.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\markers.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\markers_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\slider-h.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\slider-v.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\sprite.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\sprite_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\sprite_kpi.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\editor.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\imagebrowser.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\indeterminate.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\loading-image.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\loading.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\loading_2x.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\markers.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\markers_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\slider-h.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\slider-v.gif" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\sprite.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\sprite_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\sprite_kpi.png" />
+    <Content Include="assets\css\kendo\2020.2.617\Default\sprite_kpi_2x.png" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="assets\css\kendo\2020.2.617\images\back.png" />
+    <Content Include="assets\css\kendo\2020.2.617\images\kendoui.svg" />
+    <Content Include="assets\css\kendo\2020.2.617\images\wp8_icons.png" />
+    <Content Include="assets\css\kendo\2020.2.617\images\wp8_inverseicons.png" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.black.mobile.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap-v4.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap.mobile.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.common-bootstrap.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.common.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.dataviz.default.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default-v2.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default.mobile.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.mobile.all.min.css" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.rtl.min.css" />
+    <Content Include="assets\css\main-Ar.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\reset.css" />
+    <Content Include="assets\css\styles.css" />
+    <Content Include="assets\css\valadtion-ar.css" />
+    <Content Include="assets\css\valadtion.css" />
+    <Content Include="assets\fonts\fa-solid-900.svg" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="assets\images\1.jpg" />
+    <Content Include="assets\images\1.png" />
+    <Content Include="assets\images\3.jpg" />
+    <Content Include="assets\images\40.png" />
+    <Content Include="assets\images\AR.png" />
+    <Content Include="assets\images\arqami-home.png" />
+    <Content Include="assets\images\Arqami_logo%402x.png" />
+    <Content Include="assets\images\arqami_logo-2x.png" />
+    <Content Include="assets\images\arqami_logo.svg" />
+    <Content Include="assets\images\avatar7.png" />
+    <Content Include="assets\images\bg.png" />
+    <Content Include="assets\images\bg1.png" />
+    <Content Include="assets\images\bg2.png" />
+    <Content Include="assets\images\brand %282%29.svg" />
+    <Content Include="assets\images\brand.svg" />
+    <Content Include="assets\images\brows.png" />
+    <Content Include="assets\images\En.png" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\flags\fa-flag-jo.png" />
+    <Content Include="assets\images\fp.png" />
+    <Content Include="assets\images\home.svg" />
+    <Content Include="assets\images\icon-Svg\branch.svg" />
+    <Content Include="assets\images\icon-Svg\brand.svg" />
+    <Content Include="assets\images\icon-Svg\brand2.svg" />
+    <Content Include="assets\images\icon-Svg\company.svg" />
+    <Content Include="assets\images\icon-Svg\item-group.svg" />
+    <Content Include="assets\images\icon-Svg\other.svg" />
+    <Content Include="assets\images\icon-Svg\tax.svg" />
+    <Content Include="assets\images\icon-Svg\tax2.svg" />
+    <Content Include="assets\images\icon-Svg\unit-measure.svg" />
+    <Content Include="assets\images\LEADING ICON.svg" />
+    <Content Include="assets\images\slideC.jpg" />
+    <Content Include="assets\images\slidec.png" />
+    <Content Include="assets\images\taxi.svg" />
+    <Content Include="assets\images\villa.svg" />
+    <Content Include="assets\js\angular.js" />
+    <Content Include="assets\js\angular.min.js" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\bootstrap.min.rtl.js" />
+    <Content Include="assets\js\contactus.js" />
+    <Content Include="assets\js\JavaScript.js" />
+    <Content Include="assets\js\jquery-3.3.1.slim.min.js" />
+    <Content Include="assets\js\jquery-3.4.1.min.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="assets\js\kendo.all.min.js" />
+    <Content Include="assets\js\loader.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\owl.carousel.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\script.js" />
+    <Content Include="assets\js\Validations\ValidateForms.js" />
+    <Content Include="assets\js\Validations\ValidLogin.js" />
+    <Content Include="assets\js\Validations\Validation.js" />
+    <Content Include="assets\js\Validations\ValidRegisteration.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="Dashboard.html" />
+    <Content Include="fonts\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="fonts\Open_Sans\LICENSE.txt" />
+    <Content Include="index.html" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Pages\Account\Account.html" />
+    <Content Include="Pages\Account\ChangePassword.html" />
+    <Content Include="Pages\Account\Forget-confirmed.html" />
+    <Content Include="Pages\Account\ForgetPass.html" />
+    <Content Include="Pages\Account\Login.html" />
+    <Content Include="Pages\Account\register-error.html" />
+    <Content Include="Pages\Account\register-compleat.html" />
+    <Content Include="Pages\Account\register-confirmed.html" />
+    <Content Include="Pages\Account\Register.html" />
+    <Content Include="Pages\Account\Reset-confirmed.html" />
+    <Content Include="Pages\Account\ResetPassword.html" />
+    <Content Include="Pages\Branches\CMBranches.html" />
+    <Content Include="Pages\Brands\Brands.html" />
+    <Content Include="Pages\Branches\Branches.html" />
+    <Content Include="Pages\Brands\CMBrands.html" />
+    <Content Include="Pages\Company\Company.html" />
+    <Content Include="Pages\Dashboard\Dashboard.html" />
+    <Content Include="Pages\ItemGroups\CMItemGroups.html" />
+    <Content Include="Pages\ItemGroups\ItemGroups.html" />
+    <Content Include="Pages\Items\CMItems.html" />
+    <Content Include="Pages\Items\Items.html" />
+    <Content Include="Pages\Tax\CMTax.html" />
+    <Content Include="Pages\Tax\Tax.html" />
+    <Content Include="Pages\UOM\CMUOM.html" />
+    <Content Include="Pages\UOM\UOM.html" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Cmn\alerts.js" />
+    <Content Include="Scripts\Cmn\Global.js" />
+    <Content Include="Scripts\Cmn\jquery.cookie.js" />
+    <Content Include="fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fonts\Open_Sans\OpenSans-Bold.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-BoldItalic.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-ExtraBold.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-Italic.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-Light.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-LightItalic.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-Regular.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-SemiBold.ttf" />
+    <Content Include="fonts\Open_Sans\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="assets\fonts\fa-solid-900.eot" />
+    <Content Include="assets\fonts\fa-solid-900.ttf" />
+    <Content Include="assets\fonts\fa-solid-900.woff" />
+    <Content Include="assets\fonts\fa-solid-900.woff2" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="assets\css\kendo\2020.2.617\images\kendoui.ttf" />
+    <Content Include="assets\css\kendo\2020.2.617\images\kendoui.woff" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.black.mobile.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap-v4.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.bootstrap.mobile.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.common-bootstrap.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.common.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.dataviz.blueopal.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.dataviz.bootstrap.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.dataviz.default.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default-v2.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.default.mobile.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.mobile.all.min.css.map" />
+    <Content Include="assets\css\kendo\2020.2.617\kendo.rtl.min.css.map" />
+    <Content Include="assets\css\flag.min.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Cmn\CmnMngr.js" />
+    <Content Include="Scripts\Cmn\lock.min.js" />
+    <Content Include="Scripts\Cmn\Shared.js" />
+    <Content Include="Scripts\CMPages\CMBranches.js" />
+    <Content Include="Scripts\CMPages\CMBrands.js" />
+    <Content Include="Scripts\CMPages\CMItemGroup.js" />
+    <Content Include="Scripts\CMPages\CMTax.js" />
+    <Content Include="Scripts\CMPages\CMUOM.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\pages\Account.js" />
+    <Content Include="Scripts\pages\Branches.js" />
+    <Content Include="Scripts\pages\Brands.js" />
+    <Content Include="Scripts\pages\Company.js" />
+    <Content Include="Scripts\pages\ItemGroup.js" />
+    <Content Include="Scripts\pages\login.js" />
+    <Content Include="Scripts\pages\Register.js" />
+    <Content Include="Scripts\pages\Tax.js" />
+    <Content Include="Scripts\pages\UOM.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\StringLang\AR.json" />
+    <Content Include="Scripts\StringLang\EN.json" />
+    <Content Include="Scripts\StringLang\Kendo.ar-JO.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\StringLang\kendo.en-US.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="Scripts\Server\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1972</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44362/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,72 @@
+﻿<style>
+
+    #reportViewer1 {
+        position: absolute;
+        left: 5px;
+        right: 5px;
+        top: 10px;
+        bottom: 5px;
+        overflow: hidden;
+        font-family: Verdana, Arial;
+ 
+    }
+</style>
+
+<!--<link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.blueopal.min.css" rel="stylesheet" />-->
+
+<form class="form" id="CMReports" style="height:100%">
+    
+    <!--<div class="row">
+        <div class="col-md-12 col-lg-6">
+
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap ">
+                        <label class="label-input-pos " string="Name"></label>
+                        <input type="text" name="Name" class="form-control input-sm" id="Name" />
+                    </div>
+                    <div class="  mt-1 is-helpful" data-helper="Enter_your_Name" data-error="Please_enter_your_Name"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos " string="Mobile"></label>
+                        <input type="text" name="PhoneNumber" class="form-control input-sm" id="PhoneNumber" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    </div>
+                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>-->
+
+   
+  
+    <div class="row ">
+        <div class="col-md-12 col-lg-12 h-100">
+            <div id="reportViewer1">
+
+                loading...
+
+            </div>
+        </div>
+        </div>
+        <input type="hidden" id="Id" value="" />
+        <input type="hidden" id="UserID" value="" />
+        <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+
+            <a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+        </div>
+
+</form>
+
+<script src="../../Scripts/CMPages/CMReports.js"></script>
+
+

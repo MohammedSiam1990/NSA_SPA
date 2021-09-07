@@ -1,0 +1,48 @@
+﻿
+<div id="UserForm">
+
+    <main class="main-card-report">
+        <div id="listViewCategory"></div>
+        <div id="listViewCategoryGroup"></div>
+    </main>
+
+</div>
+
+<script type="text/x-kendo-tmpl" id="templateCategory">
+    <div class="overviewCard" ID="#:ReportCategoryID#" >
+    <div class="overviewCard-icon ">
+            <i class="metismenu-icon" aria-disabled="true"><img src="#:IconPath#" aria-disabled="true" width="25" height="30"></i>
+        </div>
+        <div class="overviewCard-description">
+            <h3 class="overviewCard-title text-light">#:$Lang==="ar"?ReportCategoryNameAr:ReportCategoryName#</h3>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="templateCategoryGroup">
+    <div class="card-report">
+         <div class="card__header-report">
+             <div class="card__header-title-report text-light">
+                 #:$Lang==="ar"?ReportCategoryGroupNameAr:ReportCategoryGroupName#
+             </div>
+             <!--<div class="settings">
+                    <a href="" class="settings__block"><i class="fa fa-eye" aria-hidden="true"></i></a>
+             </div>-->
+         </div>
+    <div class="card-report">
+                <div class="documents">
+    </div>
+    </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-tmpl" id="templateReports">
+     <div class="document">
+         <div class="document__img">
+              <div class="settings__block settings__block-img "><i class="fa fa-eye" aria-hidden="true"></i></div>
+         </div>
+         <div class="document__title"> #:$Lang==="ar"?ReportNameAr:ReportName#</div>
+         <!--<div class="document__date">07/16/2018</div>-->
+    </div>
+</script>
+<script src="../../Scripts/pages/Reports.js"></script>

@@ -1,0 +1,375 @@
+﻿<style>
+    ResultTxt
+    .k-upload-status {
+        display: none;
+    }
+</style>
+
+<form class=" form" id="CMCustomer">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultCustomer">
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input tabindex="1" type="text" name="CustomerNum" class="form-control input-sm" id="CustomerNum" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <label class="label-input-pos required-label" string="CreationDate"></label>
+                    <input tabindex="2" disabled type="text" name="CreateDateS" class="form-control input-sm" id="CreateDateS" />
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameEn"></label>
+                        <input tabindex="2" type="text" name="CustomerName" class="form-control input-sm" id="CustomerName" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="form-group  mb-3 ">
+                    <label class="label-input-pos " for="" string="Types"></label>
+                    <div class="form-group">
+                        <select tabindex="4" name="TypeID" class="w-100 input-sm" id="TypeID">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameAr"></label>
+                        <input tabindex="3" type="text" name="CustomerNameAr" class="form-control input-sm" id="CustomerNameAr" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos" string="Mobile"></label>
+                        <input tabindex="5" type="text" name="Phone" class="form-control input-sm" id="Phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-6 " id="Div_Gender">
+            <label class="label-input-pos" for="" string="Gender"></label>
+            <select tabindex="6" name="GenderID" class="w-100 input-sm" id="GenderID">
+            </select>
+        </div>
+
+
+
+
+        <!--<div class="col-md-3">
+        <div class=" text-left form-group">
+            <div class="  input-wrap is-required ">
+                <label class="label-input-pos  required-label" for="" string="Country" data-flag="true">
+                </label>
+
+                <select name="Country" class="form-control input-sm" id="Country">
+                </select>
+            </div>
+        </div>
+    </div>-->
+
+
+
+        <div class="col-md-3">
+            <div class=" text-left form-group">
+                <div class="input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="Country" data-flag="true">
+                    </label>
+
+
+
+                    <select name="Country" class="form-control input-sm" id="Country">
+                    </select>
+
+
+                </div><div class=" mt-1 is-helpful" data-helper="please_enter_your_Country" data-error="please_enter_your_Country"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-3">
+
+            <div class="text-left input-group mb-3">
+                <div class="w-100">
+                    <label class="label-input-pos required-label" for="" string="PhoneNumber">
+                    </label>
+                    <div class="input-group-prepend input-wrap is-required direction" style="margin-bottom:10px;">
+
+
+                        <span>  <input type="text" style="width:50px" class="input-group-text border-invisble" disabled name="Code" id="Code" /></span>
+                        <input type="tel" name="Mobile" id="Mobile" class="form-control direction" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+                    </div>
+                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class=" text-left form-group">
+                <div class="input-wrap">-->
+          
+                <!--</div>
+            </div>-->
+        </div>
+
+
+ 
+
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6 ">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="DeliveryFees"></label>
+                    <input tabindex="8" type="text" name="DeliveryFee" class="form-control input-sm" id="DeliveryFee" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md col-md-2">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="FreeDelivery"></p>
+                    <input tabindex="9 " type="checkbox" id="FreeDelivery" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md col-md-2" id="Div_blackList">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="blackList"></p>
+                    <input tabindex="10" type="checkbox" id="BlackListed" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="col-md col-md-2">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="InActive"></p>
+                    <inpu tabindex="11" t type="checkbox" id="InActive" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6 ">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="Discount"></label>
+                    <input tabindex="12" type="text" name="DiscountPrcnt" class="form-control input-sm" id="DiscountPrcnt" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 ">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="Email"></label>
+                    <input tabindex="13" type="email" name="Email" class="form-control input-sm" id="Email" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="row">
+
+
+        <div class="col-md col-md-2" id="div_AllowTermSale">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="AllowTermSale"></p>
+                    <input tabindex="14" type="checkbox" id="AllowTermSale" onchange="onchange_AllowTermSale()" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+
+        <div class="col-md col-md-4" id="div_TermSaleLimit">
+            <div class=" text-left form-group">
+                <div class="input-wrap">
+                    <label class="label-input-pos" string="TermSaleLimit"></label>
+                    <input tabindex="15" type="text" name="TermSaleLimit" class="form-control input-sm" disabled id="TermSaleLimit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6 ">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="Remarks"></label>
+                    <input tabindex="16" type="text" name="Remarks" class="form-control input-sm" id="Remarks" />
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md col-md-1" id="div_IsCreditor">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="Credit"></p>
+                    <input tabindex="9" disabled type="checkbox" id="IsCreditor" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md " id="div_Credit">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="Credit"></label>
+                    <input tabindex="17" type="text" disabled name="Credit" class="form-control input-sm" id="Credit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md " id="div_deposit">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="deposit"></label>
+                    <input tabindex="17" type="text" disabled name="deposit" class="form-control input-sm" id="deposit" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md " id="div_CreditOpenBalance">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="CreditOpenBalance"></label>
+                    <input tabindex="18" type="text" disabled name="CreditOpenBalance" class="form-control input-sm" id="CreditOpenBalance" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md " id="Div_Points">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="Point"></label>
+                    <input tabindex="19" type="text" disabled name="Points" class="form-control input-sm" id="Points" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md " id="Div_PointOpenBalance">
+            <div class=" text-left form-group">
+                <div class="  input-wrap">
+                    <label class="label-input-pos" string="PointOpenBalance"></label>
+                    <input tabindex="20" type="text" disabled name="PointsOpenBalance" class="form-control input-sm" id="PointsOpenBalance" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <input type="hidden" id="CustomerID" value="" />
+    <input type="hidden" id="CustTypeID" value="" />
+    <input type="hidden" id="Latitude" value="" />
+    <input type="hidden" id="Longitude" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button tabindex="21" type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+        <a tabindex="22" onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+    </div>
+
+</form>
+
+<script src="../../Scripts/CMPages/CMCustomer.js"></script>
+

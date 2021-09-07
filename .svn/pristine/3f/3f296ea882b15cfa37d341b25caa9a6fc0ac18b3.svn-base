@@ -1,0 +1,86 @@
+﻿<style>
+    .k-upload-status {
+        display: none;
+    }
+
+    .k-list > .k-item {
+        padding-top: 2em;
+    }
+
+    .k-list > .k-state-hover{
+        padding-top: 2em;
+    }
+
+    .k-list > .k-item > .k-group {
+        height: 2em;
+        left: 0;
+    }
+
+    .k-list > .k-state-hover > .k-group {
+        top: -1px;
+        left: -1px;
+    }
+</style>
+
+<form class="form" id="CMRoles">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultTxt">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameEn"></label>
+                        <input type="text" name="Name" class="form-control input-sm" id="Name" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 ">
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameAr"></label>
+                        <input type="text" name="NameAr" class="form-control input-sm" id="NameAr" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap ">
+                    <label class="label-input-pos " string="Brands"></label>
+                    <select id="BrandsIDs"></select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap ">
+                    <label class="label-input-pos " string="Branches"></label>
+                    <select id="BranchIDs"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <input type="hidden" id="Id" value="" />
+            <input type="hidden" id="CreateDate" value="" />
+            <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+                <button type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+                <a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+            </div>
+
+</form>
+
+<script src="../../Scripts/CMPages/CMRoles.js"></script>
+

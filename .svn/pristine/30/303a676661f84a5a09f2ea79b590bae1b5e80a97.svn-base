@@ -1,0 +1,43 @@
+﻿
+<style>
+    .customEdit{
+        
+        
+    }
+ 
+</style>
+
+<div id="ItemGroupsForm">
+    <div class="">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <!--<input autocapitalize="off" autocomplete="off" aria-autocomplete="both" aria-label="To" class="ms-BasePicker-input pickerInput_34694d2a" aria-expanded="true" aria-haspopup="true" role="combobox" data-lpignore="true" value="" tabindex="0" aria-owns="suggestion-list">-->
+                <div id="grid"></div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="javascriptTemplate" type="text/x-kendo-template">
+    <ul>
+        # alert()#
+        # for (var i = 0; i < dataItem.ItemsNameAr.length; i++) { #
+
+        <li>#=(data[i]) #</li>
+        # } #
+    </ul>
+</script>
+<script id="templateItems" type="text/x-kendo-template">
+    <span class="#: isDeleted ? 'k-state-disabled': ''#">
+        #: $Lang === 'ar' ? ItemNameAr: ItemName #
+    </span>
+</script>
+<script type="text/x-kendo-template" id="template">
+
+    <div class='ImageView #= select # '>
+        <img src="#= url #" />
+    </div>
+
+</script>
+<script src="../../Scripts/pages/ItemGroup.js"></script>

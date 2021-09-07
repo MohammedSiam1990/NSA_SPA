@@ -1,0 +1,20 @@
+﻿
+
+    <style>
+        .Center {
+            text-align: center;
+            align-content: center;
+        }
+    </style>
+<div id="UOMForm">
+    <div class="">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div id="grid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../../Scripts/pages/UOM.js"></script>
