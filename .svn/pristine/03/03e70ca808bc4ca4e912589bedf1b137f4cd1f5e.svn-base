@@ -1,0 +1,83 @@
+﻿
+    <form class=" form" id="ConfigForm">
+        <div class="row" id="divtxtrow">
+
+
+            <!--<div class="form-group col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="Num"></label>
+                    <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+            </div>
+        </div>-->
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 ">
+                <div id="tabConfig">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div CLASS="col-md-12 ">
+                <div class="alert alert-dismissible fade  " role="alert" id="ResultMessage">
+                    <div id="ResultTxt">
+
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+            <button id="Save" type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveConfig()" string="Save">save</button>
+        </div>
+        
+    </form>
+<script src="../../Scripts/pages/Config.js"></script>
+
+

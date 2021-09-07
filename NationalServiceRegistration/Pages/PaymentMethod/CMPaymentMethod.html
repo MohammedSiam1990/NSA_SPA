@@ -1,0 +1,152 @@
+﻿<style>
+    .k-upload-status {
+        display: none;
+    }
+</style>
+
+<form class=" form" id="CMPaymentMethod">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultPaymentMethod">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-6">
+            <label class="label-input-pos required-label " for="" string="Types"></label>
+            <div class="form-group">
+                <select name="TypeID" class="w-100 input-sm" id="TypeID" onchange="onchange_Type()">
+                </select>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-4" id="div_FreePaymentType">
+            <label class="label-input-pos " for="" string="FreeType"></label>
+            <div class="form-group">
+                <select name="FreePaymentTypeID" class="w-75 input-sm" id="FreePaymentTypeID">
+                </select>
+
+            </div>
+        </div>
+
+        <div class="col-2" id="div_CalcTaxOnFreePM">
+            <label class="control control--checkbox">
+                <p string="CalcTaxOnFreePM"></p>
+                <input type="checkbox" id="CalcTaxOnFreePM" />
+                <div class="control__indicator">
+                </div>
+            </label>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="NameEn"></label>
+                    <input type="text" name="PaymentMethodName" class="form-control input-sm" id="PaymentMethodName" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos required-label" string="NameAr"></label>
+                    <input type="text" name="PaymentMethodNameAr" class="form-control input-sm" id="PaymentMethodNameAr" />
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="row">
+
+        <div class="col-6" id="div_CommissionPrcnt">
+            <div class=" text-left form-group">
+                <label class="label-input-pos required-label" string="CommissionPrcnt"></label>
+                <input type="text" name="CommissionPrcnt" class="form-control input-sm" id="CommissionPrcnt" />
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="col-3" id="div_CommissionOnClient">
+            <label class="control control--checkbox">
+                <p string="CommissionOnClient"></p>
+                <input type="checkbox" id="CommissionOnClient" />
+                <div class="control__indicator">
+                </div>
+            </label>
+
+        </div>
+
+        <div class="col-3" id="div_CalcCommissionTax">
+            <label class="control control--checkbox">
+                <p string="CalcCommissionTax"></p>
+                <input type="checkbox" id="CalcCommissionTax" />
+                <div class="control__indicator">
+                </div>
+            </label>
+
+        </div>
+
+
+
+        <div class="col-md-12 col-lg-6">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="InActive"></p>
+                    <input type="checkbox" id="InActive" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <input type="hidden" id="PaymentMethodID" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+        <a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+    </div>
+
+</form>
+
+<script src="../../Scripts/CMPages/CMPaymentMethod.js"></script>
+

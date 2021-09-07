@@ -1,0 +1,52 @@
+﻿
+<div id="ReportsPermissionsForm">
+        <div class="table-wrapper">
+            <div id="fixedBar" style="display:none">
+                <div class="form-group row innerRow">
+
+                    <div class="col-sm-3">
+                        <label for="RoleID" class=" col-form-label" string="Roles"></label>
+                        <select id="RoleID" class="form-control">
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="ReportCategory" class=" col-form-label" string="ReportGroup"></label>
+                        <select id="ReportCategory" class="form-control">
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="ReportCategoryGroup" class=" col-form-label" string="ReportCategoryGroups"></label>
+                        <select id="ReportCategoryGroup" class="form-control">
+                        </select>
+                    </div>
+                    <div class="col-sm-3" >
+                        <div class="form-group " style="margin-top: 38px;">
+                            <button id="SavePermession" type="button" class="browse btn  btn-primary mr-2 " title="Save" onclick="UpdateReportPermissions()"><i class="fa fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <style type="text/css">
+
+                    .k-listview {
+                        border: 0;
+                        padding: 0 0 20px 0;
+                        min-width: 0;
+                        padding-top: 70px;
+                    }
+                </style>
+
+                <div id="listView"></div>
+              
+            </div>
+        </div>
+</div>
+
+<script type="text/x-kendo-tmpl" id="templateLV">
+    <div class="Permissions" ReportID="#:ReportID#">
+        <div class="k-grid" data-id="Grid#:ReportID#" id="Grid#:ReportID#" data-js='#:JsonData#' data-name='#:$Lang==="ar"?ReportNameAr:ReportName#'></div>
+    </div>
+</script>
+
+<script src="../../Scripts/pages/ReportsPermissions.js"></script>

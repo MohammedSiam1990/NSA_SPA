@@ -1,0 +1,29 @@
+﻿
+
+    <form id="Dashboard">
+        <div class="header-dashboard ">
+            <h1 class="arqami-color" id="WelcomCompanyName"> </h1>
+        </div>
+        <div class="para-dashboard ">
+            <p class="arqami-color" string="DashboardAddedAfterConfiguration"></p>
+        </div>
+        <div class="image-dashboard">
+            <img src="assets\images\NSR-home.png" alt="">
+
+        </div>
+    </form>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if (sessionStorage['lang'] === 'ar') {
+            $('#WelcomCompanyName').html(DBSTRING['Welcome'] + ' ! ' + sessionStorage['CompanyNameAr']);
+        }
+        else {
+            $('#WelcomCompanyName').html(DBSTRING['Welcome'] + ' ! ' + sessionStorage['CompanyName']);
+        }
+        
+        FillDBSTRINGPage('Dashboard');
+    });
+
+</script>

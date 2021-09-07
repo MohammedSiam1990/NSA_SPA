@@ -1,0 +1,82 @@
+﻿
+
+    
+                                            <form class="loginFormAdmin form" id="LoginForm">
+                                                <div class="text-left form-group mb-4">
+                 
+                                                    <div class="  input-wrap is-required">
+                                                        <label class="label-input-pos  required-label" for="" string="Email"></label>
+                                                        <input type="email" name="email" id="Username" class="form-control input-sm">
+
+                                                        <span class="icon validation small error hide">
+
+                                                        </span>
+
+                                                    </div>
+                                                    <div class=" mt-1 is-helpful" data-helper="Enter_email_format_right" data-error="Please_enter_your_email"></div>
+
+
+                                                </div>
+                                                <div class=" text-left form-group mb-4 ">
+
+                                                    <div class="  input-wrap is-required">
+                                                        <label class="label-input-pos  required-label" for="" string="Password"></label>
+                                                        <input type="password" name="password1" id="Password" class="form-control input-sm">
+
+                                                        <span class="icon validation small error hide">
+
+                                                        </span>
+
+                                                    </div>
+                                                    <div class=" mt-1 is-helpful" data-helper="Please_enter_password" data-error="Please_enter_password"></div>
+
+
+                                                </div>
+                                                <div class="form-group mb-0">
+                                                    <button type="button" class="w-100 btn btn-lg mb-4 bg-lo " string="Login" onclick="auth()">
+                                                        <!--تسجيل
+                                                        دخول-->
+                                                    </button>
+                                                </div>
+                                                <div class="form-group text-left pdd-20 mb-0">
+                                                    <div class="row">
+                                                        <div class="col-6 col-md-6">
+                                                            <div class="checkbox checkbox-fill d-inline">
+
+                                                                <input type="checkbox" name="checkbox-fill-1" id="remember_me_label">
+                                                                <label for="checkbox-fill-a1" class="cr ml-2" string="Remember">
+                                                                    <!--تذكرنى-->
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 col-md-6">
+                                                            <div class=" d-inline">
+                                                                <label class="w-100 text-right font-Light color_link">
+                                                                    <a class="arqami-color" string="Forget-password" onclick="LoadContent('ForgetPass')">
+                                                                        <!--هل نسيت كلمة المرور-->
+                                                                    </a>
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="M_welocmDiv mt-2">
+                                                    <label class=" text-center font-Bold text-black" string="DontHaveAnaccount">
+                                                        <!--ليس لديك حساب
+                                                        ؟-->
+                                                    </label>
+                                                    <label class="ml-2 text-center font-Light arqami-color">
+                                                        <a onclick="LoadContent('Register')" class="arqami-color" string="signup">
+                                                            <!--تسجيل دخول-->
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                            </form>
+                                        
+                                            <script src="../../Scripts/pages/login.js"></script>
+                                            <script src="../../assets/js/Validations/Validation.js"></script>
+
+
+
+

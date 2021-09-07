@@ -1,0 +1,13 @@
+﻿
+<div id="CustomerForm">
+    <div class="">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div id="grid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../../Scripts/pages/Customer.js"></script>

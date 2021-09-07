@@ -1,0 +1,143 @@
+﻿
+<form class="M_regForm" name="registerform" id="registerform" autocomplete="off">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="lblCompanyName">companyName</label>
+                    <input type="text" name="name" id="CompanyName" class="form-control input-sm">
+
+                    <!--<span class="icon validation small error hide">
+
+                    </span>-->
+
+                </div>
+                <div class="  mt-1 is-helpful" data-helper="enter_your_Company_Name" data-error="please_enter_your_Company_Name"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-left form-group mb-3">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="Contact">Name</label>
+                    <input type="text" name="fname" id="Name" class="form-control input-sm">
+
+                    <!--<span class="icon validation small error hide">
+
+                    </span>-->
+
+                </div>
+                <div class="  mt-1 is-helpful" data-helper="Enter_your_Name" data-error="Please_enter_your_Name"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-left form-group mb-3">
+                <div class="  input-wrap is-required ">
+                    <label class="label-input-pos  required-label" for="" string="Country" data-flag="true">
+                    </label>
+
+                    <select name="Country" class="w-100 h-100 input-sm p-0" id="Country">
+                        <!--onchange="ChangeCountry()"-->
+                    </select>
+
+                    <!--<span class="icon validation small error hide">
+
+        </span>-->
+                </div>
+                <div class=" mt-1 is-helpful"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="text-left input-group mb-3">
+                <div class="w-100">
+                    <label class="label-input-pos required-label" for="" string="PhoneNumber">
+                        <!--رقم التلفون-->
+                    </label>
+                    <div class="input-group-prepend input-wrap is-required direction" style="margin-bottom:10px;">
+                        <span class="input-group-text border-invisble" id="Code" style="min-width:50px"></span>
+                        <input type="tel" name="phone" id="Mobile" class="form-control direction" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                        <!--<span class="icon validation small error hide">
+
+                        </span>-->
+                    </div>
+                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12">
+            <div class=" text-left form-group ">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="Email">البريد الالكترونى</label>
+                    <input type="email" name="email" id="Email" class="form-control input-sm" autocomplete="off">
+
+                    <!--<span class="icon validation small error hide">
+                    </span>-->
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_email_format_right" data-error="Please_enter_your_email"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="Password">
+
+                    </label>
+                    <input type="password" name="password1" id="Password" class="form-control input-sm">
+
+                    <!--<span class="icon validation small error hide">
+
+                    </span>-->
+
+                </div>
+                <div class=" mt-1 is-helpful"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" text-left form-group">
+                <div class="  input-wrap is-required">
+                    <label class="label-input-pos  required-label" for="" string="ConfirmPassword">تأكيد كلمة المرور</label>
+                    <input type="password" name="password2" class="form-control input-sm" id="ConfirmPassword">
+
+
+                </div>
+                <div class=" mt-1 is-helpful" data-helper="Enter_same-password_again"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12 ">
+            <div class="g-recaptcha d-flex justify-content-center mb-3" data-sitekey="6LcE9NAZAAAAAIUUg2sPCVOeUUC3ZpSV5HX-cNJK"></div>
+        </div>
+    </div>
+    <div class="form-group m-0">
+        <!--<input type="submit" value="signup" class="w-100 btn btn-lg mb-4 bg-lo ">-->
+        <button type="button" class="w-100 btn btn-lg mb-4 bg-lo " string="Register" onclick="Register()">
+            تسجيل
+            دخول
+        </button>
+    </div>
+    <div class="form-group text-center mb-2">
+        <label class=" text-center font-Bold text-black" string="ReturnTo">
+
+        </label>
+        <label class="ml-2 text-center font-Light arqami-color">
+            <a onclick="LoadContent('Login')" class="arqami-color" string="Login">
+                <!--تسجيل دخول-->
+            </a>
+        </label>
+    </div>
+</form>
+
+
+
+
+<script src="../../Scripts/Cmn/Global.js"></script>
+<script src="../../Scripts/pages/Register.js"></script>
+<script src="../../assets/js/Validations/Validation.js"></script>

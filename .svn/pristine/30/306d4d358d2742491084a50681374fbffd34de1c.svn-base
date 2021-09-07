@@ -1,0 +1,433 @@
+﻿<style>
+    ResultTxt
+    .k-upload-status {
+        display: none;
+    }
+</style>
+
+<form class=" form" id="CMSupplier">
+    <div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultCustomer">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Num"></label>
+                        <input tabindex="1" type="text" name="SupplierNum" class="form-control input-sm" id="SupplierNum" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="input-wrap ">
+                        <label class="label-input-pos " for="" string="DueDateDays">
+                        </label>
+                        <div class="input-group ">
+                            
+                            <div class="input-group-prepend ">
+                                <input tabindex="2" class="form-control input-group-text" type="text" style="min-width: 90px; height: 37px;" name="DueDateDays" id="DueDateDays" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                            </div>
+
+                            <select tabindex="3" name="DueDateTypeID" class="form-control input-sm" id="DueDateTypeID">
+                            </select>
+
+                        </div>
+                    </div>
+                    <!--<div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+            </div>-->
+                </div>
+
+
+            </div>
+            <!--<div class="form-group  ">
+        <div class=" text-left form-group">
+            <div class="  input-wrap is-required">
+                <label class="label-input-pos required-label" string="NameAr"></label>
+                <input tabindex="3" type="text" name="SupplierNameAr" class="form-control input-sm" id="SupplierNameAr" />
+            </div>
+            <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+        </div>
+    </div>-->
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameEn"></label>
+                        <input tabindex="4" type="text" name="SupplierName" class="form-control input-sm" id="SupplierName" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="NameAr"></label>
+                        <input tabindex="5" type="text" name="SupplierNameAr" class="form-control input-sm" id="SupplierNameAr" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap ">
+                        <label class="label-input-pos " string="ContactName"></label>
+                        <input tabindex="6" type="text" name="ContactName" class="form-control input-sm" id="ContactName" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos" string="Remarks"></label>
+                        <input tabindex="7" type="text" name="Remarks" class="form-control input-sm" id="Remarks" />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap ">
+                        <label class="label-input-pos " string="Email"></label>
+                        <input tabindex="9" type="email" name="Email" class="form-control input-sm" id="Email" />
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="Enter_email_format_right" data-error="Please_enter_your_email"></div>
+                </div>
+            </div>
+          
+                <div class="form-group ">
+                    <div class=" text-left form-group">
+                        <div class="  input-wrap ">
+                            <label class="label-input-pos " string="TaxNo"></label>
+                            <input tabindex="10" type="text" name="TaxNum" class="form-control input-sm" id="TaxNum" />
+                        </div>
+
+                    </div>
+                </div>
+
+           
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="input-wrap ">
+                        <label class="label-input-pos  " for="" string="Country" data-flag="true">
+                        </label>
+
+                        <select tabindex="17" name="Country" class="form-control input-sm" id="Country">
+                        </select>
+
+                    </div><div class=" mt-1 is-helpful"></div>
+                </div>
+            </div>
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="input-wrap ">
+                        <label class="label-input-pos " for="" string="City" data-flag="true">
+                        </label>
+
+                        <select tabindex="20" name="City" class="form-control input-sm" id="City">
+                        </select>
+
+                    </div><div class=" mt-1 is-helpful"></div>
+                </div>
+            </div>
+            <div class="form-group  ">
+                <div class=" text-left form-group">
+                    <div class="input-wrap ">
+                        <label class="label-input-pos " for="" string="PhoneNumber">
+                        </label>
+                        <div class="input-group ">
+
+                            <input tabindex="8" type="tel" class="form-control " name="ContactMobile" id="ContactMobile" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+
+                        </div>
+                    </div>
+                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-group ">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos" string="Mobile"></label>
+                        <input tabindex="5" type="text" name="Phone" class="form-control input-sm" id="Phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        
+
+        <div class="col-md-12 col-lg-12 row">
+
+            <div class="col-md-3">
+                <div class="control-group">
+                    <label class="control control--checkbox">
+                        <p string="AcceptTermSale"></p>
+                        <input tabindex="11" type="checkbox" id="AcceptTermSale" />
+                        <div class="control__indicator">
+                        </div>
+                    </label>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="control-group">
+                    <label class="control control--checkbox">
+                        <p string="NoTax"></p>
+                        <input tabindex="12" type="checkbox" id="NoTax" />
+                        <div class="control__indicator">
+                        </div>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="control-group">
+                    <label class="control control--checkbox">
+                        <p string="InActive"></p>
+                        <input tabindex="13" type="checkbox" id="InActive" />
+                        <div class="control__indicator">
+                        </div>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <!--<div class="row">
+
+        <div class="col-md-2">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="AcceptTermSale"></p>
+                    <input tabindex="9 " type="checkbox" id="AcceptTermSale" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="NoTax"></p>
+                    <input tabindex="10" type="checkbox" id="NoTax" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+            <div class="control-group">
+                <label class="control control--checkbox">
+                    <p string="InActive"></p>
+                    <input tabindex="10" type="checkbox" id="InActive" />
+                    <div class="control__indicator">
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+
+    </div>-->
+
+    <!--<div class="row">
+        <div class="col-md-12 col-lg-12">
+
+            <fieldset>
+                <legend string="Address"></legend>
+
+                <div class="panel panel-default">
+                    <div class=" row panel-body">
+                        <div class="col-md-12 col-lg-4">
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="Title"></label>
+                                        <input tabindex="14" type="text" name="Title" class="form-control input-sm" id="Title" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="BuildingInf"></label>
+                                        <input tabindex="15" type="text" name="BuildingInf" class="form-control input-sm" id="BuildingInf" oninput="OnInputNumber()" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="AddressDescription"></label>
+                                        <textarea tabindex="16" class="form-control" id="AddressDescription" rows="2"></textarea>
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="form-group  ">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap ">
+                                        <label class="label-input-pos  " for="" string="Country" data-flag="true">
+                                        </label>
+
+                                        <select tabindex="17" name="Country" class="form-control input-sm" id="Country">
+                                        </select>
+
+                                    </div><div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <div class="form-group mb-3">
+                                    <div class="input-wrap ">
+                                        <label class="label-input-pos " for="" string="District"></label>
+
+                                        <select tabindex="18" name="DistrictID" id="DistrictID" class="w-100 input-sm">
+                                        </select>
+
+
+                                    </div><div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="Street"></label>
+                                        <input tabindex="19" type="text" name="Street" class="form-control input-sm" id="Street" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 col-lg-4">
+
+                            <div class="form-group  ">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap ">
+                                        <label class="label-input-pos " for="" string="City" data-flag="true">
+                                        </label>
+
+                                        <select tabindex="20" name="City" class="form-control input-sm" id="City">
+                                        </select>
+
+                                    </div><div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group  ">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap ">
+                                        <label class="label-input-pos " for="" string="PhoneNumber">
+                                        </label>
+                                        <div class="input-group ">
+
+                                            <input tabindex="21" type="tel" class="form-control " name="PhoneMobile" id="PhoneMobile" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+
+                                        </div>
+                                    </div>
+                                    <div class="text-left is-helpful" data-helper="Enter_Your_phone_number" data-error="Please_Enter_Your_phone_number">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="Area"></label>
+                                        <input tabindex="22" type="text" name="Area" class="form-control input-sm" id="Area" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+        </div>
+    </div>-->
+
+    <input type="hidden" id="SupplierID" value="" />
+    <input type="hidden" id="AddressID" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button tabindex="23" type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save" id="Save">save</button>
+        <a tabindex="24" onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>
+    </div>
+</form>
+
+<script src="../../Scripts/CMPages/CMSupplier.js"></script>
+

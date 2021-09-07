@@ -1,0 +1,562 @@
+﻿
+
+<style>
+    .k-upload-status {
+        display: none;
+    }
+
+    .k-grid-content td {
+        position: relative;
+    }
+
+    .saveUOMID {
+        display: none;
+    }
+
+    
+</style>
+<form class=" form" id="CMItems">
+
+    <div class="alert alert-dismissible fade" style="margin-top:20px;" role="alert" id="ResultMessage">
+        <div id="ResultTxt">
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-12 col-lg-8">
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap is-required">
+                                <label class="label-input-pos required-label" string="Num"></label>
+                                <input type="text" name="ItemNum" class="form-control input-sm" id="ItemNum" tabindex="1" />
+                            </div>
+                            <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap is-required">
+                                <label class="label-input-pos required-label" string="NameAr"></label>
+                                <input type="text" name="ItemNameAr" class="form-control input-sm" id="ItemNameAr" tabindex="3" />
+                            </div>
+                            <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap is-required">
+                                <label class="label-input-pos required-label" string="ItemType"></label>
+                                <select name="TypeID" class="w-100 input-sm p-0" id="TypeID" onchange="ChangeItemType()" tabindex="5"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful" data-error="Please_Type"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="RemarksTemplate"></label>
+                                <select name="RemarksTemplate" class="w-100 input-sm p-0" id="RemarksTemplate" tabindex="7"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="GeneralTax"></label>
+                                <select name="GeneralTax" class="w-100 input-sm p-0" id="GeneralTax" tabindex="9"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+
+                    <!---->
+
+                </div>
+                <div class="col-md-12 col-lg-6">
+
+                    <div class="form-group " style="display:none">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="Status"></label>
+                                <input type="text" name="Status" class="form-control input-sm" id="Status" disabled="disabled" />
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap is-required">
+                                <label class="label-input-pos required-label" string="NameEn"></label>
+                                <input type="text" name="ItemName" class="form-control input-sm" id="ItemName" tabindex="2" />
+                            </div>
+                            <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="Department"></label>
+                                <select name="Department" class="w-100 input-sm p-0" id="Department" tabindex="4"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="Group"></label>
+                                <select name="Group" class="w-100 input-sm p-0" id="Group" tabindex="6"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class=" text-left form-group">
+                            <div class="  input-wrap ">
+                                <label class="label-input-pos " string="SpecialTax"></label>
+                                <select name="SpecialTax" class="w-100 input-sm p-0" id="SpecialTax" tabindex="8"></select>
+                            </div>
+                            <div class=" mt-1 is-helpful"></div>
+                        </div>
+                    </div>
+                    <div class=" col-md-12 col-lg-6" id="SubTypeIDDiv">
+                        <div class="control-group">
+                            <label class="control control--checkbox">
+                                <p string="SubTypeID"></p>
+                                <input type="checkbox" id="SubTypeID" name="SubTypeID" tabindex="10" />
+                                <div class="control__indicator">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                    <div class="row ">
+                        <div class=" col-md-12 col-lg-6">
+                            <div class="control-group">
+                                <label class="control control--checkbox">
+                                    <p string="Weighable"></p>
+                                    <input type="checkbox" id="Weighable" name="Weighable" tabindex="10" />
+                                    <div class="control__indicator">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class=" col-md-12 col-lg-6">
+                            <div class="control-group">
+                                <label class="control control--checkbox">
+                                    <p string="NoDiscount"></p>
+                                    <input type="checkbox" id="NoDiscount" name="NoDiscount" tabindex="11" />
+                                    <div class="control__indicator">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="row ">
+                        <div class=" col-md-12 col-lg-6">
+                            <div class="control-group">
+                                <label class="control control--checkbox">
+                                    <p string="PriceChange"></p>
+                                    <input type="checkbox" id="PriceChange" name="PriceChange" tabindex="12" />
+                                    <div class="control__indicator">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class=" col-md-12 col-lg-6">
+                            <div class="control-group">
+                                <label class="control control--checkbox">
+                                    <p string="InActive"></p>
+                                    <input type="checkbox" id="InActive" name="InActive" tabindex="13" />
+                                    <div class="control__indicator">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-center">
+                    <div class="control-group">
+                        <label>
+                            <p string="Color"></p>
+                        </label>&nbsp;
+                        <input type="color" name="Color" class="input-sm w-100 " id="Color" style="width:100%" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 ">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body" style="text-align: center; padding: 10px;">
+
+                                    <div>
+                                        <img src="../../assets/images/bg1.png" id="preview" class="img-thumbnail" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName').val(''); }">
+                                        <button data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg()" style="font-size:21px;"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+                                    </div>
+                                    <div class="row imgbtn mt-2 container m-0">
+
+                                        <input type="file" name="files" id="photos" class="  btn  btn-primary p-0" style="max-height:20px" />
+                                        <input type="hidden" id="ImageName" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix">&nbsp;</div>
+    <ul id="panelbar">
+
+        <li id="UOMPanel">
+            <span string="ItemUOM"></span>
+            <span class='fa btn btn-success k-icon k-i-plus addUOMID'  title='New' oncancel="return false;"> </span>
+
+            <div style="height: 300px; overflow: auto;">
+                <div id="UOMgrid"></div>
+            </div>
+
+        </li>
+        <li>
+            <span string="AdditionalData"></span>
+            <div id="cxcc" class="mt-4">
+                <div class="col-md-12">
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="NameMobileEn"></label>
+                                        <input type="textMobile" name="MobileName" class="form-control input-sm" id="MobileName" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="Insurancevalue"></label>
+                                        <input type="text" name="Insurancevalue" class="form-control input-sm" id="Insurancevalue" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap ">
+                                        <label class="label-input-pos " string="NameMobileAr"></label>
+                                        <input type="textMobile" name="MobileNameAr" class="form-control input-sm" id="MobileNameAr" />
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+
+    </ul>
+
+
+    <input type="hidden" id="ItemID" value="" />
+    <div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button id="Save" type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveUpdate()" string="Save">save</button>
+        <button id="Close" onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close">cancel</button>
+        <!--<a onclick="LoadContentChild('CMItems');" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Refresh">REload</a>-->
+    </div>
+    <div class="alert alert-dismissible alert-danger fade " role="alert" id="ResultMessageSKU">
+       
+    </div>
+</form>
+
+<script id="noDataTemplate" type="text/x-kendo-tmpl" >
+
+    # var value = instance.input.val(); #
+    # var id = instance.element[0].id; #
+    <div >
+        #: DBSTRING["NoData"] # - '#: value #' ?
+    </div>
+   
+    <button  id="AddNewSKU" class="k-button " onclick="addNew('#: id #', '#: value #')" ontouchend="addNew('#: id #', '#: value #')">#: DBSTRING["Add"] #</button>
+</script>
+
+<script src="../../Scripts/CMPages/CMItems.js"></script>
+
+
+
+<!--<li class="k-state-active">
+     <span class="k-link k-state-selected" string="ItemInfo"></span>
+
+     <div id="cxcc" class="mt-4">
+         <div class="col-md-12">
+             <div class="row ">
+                 <div class="col-md-6">
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap is-required">
+                                 <label class="label-input-pos required-label" string="Num"></label>
+                                 <input type="text" name="Num" class="form-control input-sm" id="Num" />
+                             </div>
+                             <div class=" mt-1 is-helpful" data-helper="Enter_Num" data-error="Please_Num"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap is-required">
+                                 <label class="label-input-pos required-label" string="NameEn"></label>
+                                 <input type="text" name="ItemName" class="form-control input-sm" id="ItemName" />
+                             </div>
+                             <div class=" mt-1 is-helpful" data-helper="Enter_Name" data-error="Please_Name"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="NameMobileEn"></label>
+                                 <input type="text" name="ItemNameMobile" class="form-control input-sm" id="ItemNameMobile" />
+                             </div>
+                             <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="Type"></label>
+                                 <select name="TypeID" class="w-100 input-sm p-0" id="TypeID"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="Department"></label>
+                                 <select name="Department" class="w-100 input-sm p-0" id="Department"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="GeneralTax"></label>
+                                 <select name="GeneralTax" class="w-100 input-sm p-0" id="GeneralTax"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="RemarksTemplate"></label>
+                                 <select name="RemarksTemplate" class="w-100 input-sm p-0" id="RemarksTemplate"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+
+                     <div class="row ">
+                         <div class=" col-md-6">
+                             <div class="control-group">
+                                 <label class="control control--checkbox">
+                                     <p string="Weighable"></p>
+                                     <input type="checkbox" id="Weighable" name="Weighable" />
+                                     <div class="control__indicator">
+                                     </div>
+                                 </label>
+                             </div>
+                         </div>
+                         <div class=" col-md-6">
+                             <div class="control-group">
+                                 <label class="control control--checkbox">
+                                     <p string="NoDiscount"></p>
+                                     <input type="checkbox" id="NoDiscount" name="NoDiscount" />
+                                     <div class="control__indicator">
+                                     </div>
+                                 </label>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row ">
+                         <div class=" col-md-6">
+                             <div class="control-group">
+                                 <label class="control control--checkbox">
+                                     <p string="NoPriceChange"></p>
+                                     <input type="checkbox" id="NoPriceChange" name="NoPriceChange" />
+                                     <div class="control__indicator">
+                                     </div>
+                                 </label>
+                             </div>
+                         </div>
+                         <div class=" col-md-6">
+                             <div class="control-group">
+                                 <label class="control control--checkbox">
+                                     <p string="InActive"></p>
+                                     <input type="checkbox" id="InActive" name="InActive" />
+                                     <div class="control__indicator">
+                                     </div>
+                                 </label>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap is-required">
+                                 <label class="label-input-pos required-label" string="Status"></label>
+                                 <input type="text" name="Status" class="form-control input-sm" id="Status" disabled="disabled" />
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+
+                 </div>
+                 <div class="col-md-6">
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap is-required">
+                                 <label class="label-input-pos required-label" string="NameAr"></label>
+                                 <input type="text" name="ItemNameAr" class="form-control input-sm" id="ItemNameAr" />
+                             </div>
+                             <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                         </div>
+                     </div>
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="NameMobileAr"></label>
+                                 <input type="text" name="ItemNameMobileAr" class="form-control input-sm" id="ItemNameMobileAr" />
+                             </div>
+                             <div class=" mt-1 is-helpful" data-helper="Enter_NameAr" data-error="Please_NameAr"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="Insurancevalue"></label>
+                                 <input type="text" name="Insurancevalue" class="form-control input-sm" id="Insurancevalue" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="Group"></label>
+                                 <select name="Group" class="w-100 input-sm p-0" id="Group"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="form-group ">
+                         <div class=" text-left form-group">
+                             <div class="  input-wrap ">
+                                 <label class="label-input-pos " string="SpecialTax"></label>
+                                 <select name="SpecialTax" class="w-100 input-sm p-0" id="SpecialTax"></select>
+                             </div>
+                             <div class=" mt-1 is-helpful"></div>
+                         </div>
+                     </div>
+
+
+                     <div class="row">
+                         <div class="col-md-3 d-flex align-items-center">
+                             <div class="control-group">
+                                 <label>
+                                     <p string="Color"></p>
+                                 </label>&nbsp;
+                                 <input type="color" name="Color" class="input-sm w-100 " id="Color" style="width:100%" />
+                             </div>
+                         </div>
+
+                         <div class="col-md-9 ">
+                             <div class="row ">
+                                 <div class="col-md-12">
+                                     <div class="card">
+                                         <div class="card-body" style="text-align: center; padding: 10px;">
+
+                                             <div>
+                                                 <img src="../../assets/images/bg1.png" id="preview" class="img-thumbnail" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName').val(''); }">
+                                                 <button data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg()" style="font-size:21px;"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+                                             </div>
+                                             <div class="row imgbtn mt-2 container m-0">
+                                                 <input type="file" name="files" id="photos" class="  btn  btn-primary p-0" style="max-height:20px" />
+                                                 <input type="hidden" id="ImageName" />
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </li>-->

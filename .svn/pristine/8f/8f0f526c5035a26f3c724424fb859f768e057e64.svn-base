@@ -1,0 +1,13 @@
+﻿
+<script id="KendoLang"></script>
+    <div id="BrandsForm">
+        <div class="">
+            <div class="table-responsive">
+                <div class="table-wrapper" id="innerContainer_index">
+                     <div id="grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../Scripts/pages/Brands.js"></script>
+  

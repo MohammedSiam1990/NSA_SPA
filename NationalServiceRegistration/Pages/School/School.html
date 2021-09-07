@@ -1,0 +1,1335 @@
+﻿
+
+<style>
+    .k-upload-status {
+        display: none;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    html {
+        height: 100%
+    }
+
+    p {
+        color: grey
+    }
+
+    #heading {
+        text-transform: uppercase;
+        color: #673AB7;
+        font-weight: normal
+    }
+
+    #SchoolForm {
+        text-align: center;
+        position: relative;
+        margin-top: 20px
+    }
+
+        #SchoolForm fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+    .form-card {
+        text-align: left
+    }
+
+    #SchoolForm fieldset:not(:first-of-type) {
+        display: none
+    }
+
+    /*#SchoolForm input,
+    #SchoolForm textarea {
+        padding: 8px 15px 8px 15px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 25px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2C3E50;
+        background-color: #ECEFF1;
+        font-size: 16px;
+        letter-spacing: 1px
+    }*/
+
+    /* #SchoolForm input:focus,
+    #SchoolForm textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #673AB7;
+        outline-width: 0
+    }*/
+
+    #SchoolForm .action-button {
+        width: 100px;
+        background: #673AB7;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 2px;
+        margin: 2px;
+        float: left
+    }
+
+    #msform .action-button:hover,
+    #msform .action-button:focus {
+        background-color: #311B92
+    }
+
+    #SchoolForm .action-button-previous {
+        width: 100px;
+        background: #616161;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 2px;
+        margin: 2px;
+        float: left
+    }
+
+    #msform .action-button-previous:hover,
+    #msform .action-button-previous:focus {
+        background-color: #000000
+    }
+
+    .card {
+        z-index: 0;
+        border: none;
+        position: relative
+    }
+
+    .fs-title {
+        font-size: 25px;
+        color: #673AB7;
+        margin-bottom: 15px;
+        font-weight: normal;
+        text-align: left
+    }
+
+    .purple-text {
+        color: #673AB7;
+        font-weight: normal
+    }
+
+    .steps {
+        font-size: 25px;
+        color: gray;
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-align: right
+    }
+
+    .fieldlabels {
+        color: gray;
+        text-align: left
+    }
+
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: lightgrey
+    }
+
+        #progressbar .active {
+            color: #673AB7
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 15px;
+            width: 12.5%;
+            float: right;
+            position: relative;
+            font-weight: 400
+        }
+
+        #progressbar #Information_Data:before {
+            font-family: FontAwesome;
+            content: "\f05a"
+        }
+
+        #progressbar #Certificates:before {
+            font-family: FontAwesome;
+            content: "\f0a3"
+        }
+
+        #progressbar #Telephone:before {
+            font-family: FontAwesome;
+            content: "\f098"
+        }
+
+        #progressbar #InfoWrokCurrent:before {
+            font-family: FontAwesome;
+            content: "\f017"
+        }
+
+        #progressbar #InfoHomeAddress:before {
+            font-family: FontAwesome;
+            content: "\f015"
+        }
+
+        #progressbar #Attachment:before {
+            font-family: FontAwesome;
+            content: "\f019"
+        }
+
+        #progressbar #ChkDelay_Exemption_Exception:before {
+            font-family: FontAwesome;
+            content: "\f0c6"
+        }
+
+
+        #progressbar #confirm:before {
+            font-family: FontAwesome;
+            content: "\f00c"
+        }
+
+        #progressbar li:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 20px;
+            color: #ffffff;
+            background: lightgray;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px
+        }
+
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: lightgray;
+            position: absolute;
+            left: 0;
+            top: 25px;
+            z-index: -1
+        }
+
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #673AB7
+        }
+
+    .progress {
+        height: 20px
+    }
+
+    .progress-bar {
+        background-color: #673AB7
+    }
+
+    .fit-image {
+        width: 100%;
+        object-fit: cover
+    }
+</style>
+
+<form class=" form" id="SchoolForm">
+
+    <!--<div class="alert alert-dismissible fade" style="margin-top:20px;max-height:45px" role="alert" id="ResultMessage">
+        <div id="ResultTxt">
+        </div>
+    </div>-->
+
+
+
+    <ul id="progressbar">
+        <li class="active" id="Information_Data" string="Information_Data"><strong></strong></li>
+        <li id="Certificates"><strong string="Certificates"></strong></li>
+        <li id="Telephone"><strong string="Telephone"></strong></li>
+        <li id="InfoWrokCurrent"><strong string="InfoWrokCurrent"></strong></li>
+        <li id="InfoHomeAddress"><strong string="InfoHomeAddress"></strong></li>
+        <li id="Attachment"><strong string="Attachment"></strong></li>
+        <li id="ChkDelay_Exemption_Exception"><strong string="ChkDelay_Exemption_Exception"></strong></li>
+        <li id="confirm"><strong string="Finish">Finish</strong></li>
+    </ul>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    </div> <br>
+    <input type="hidden" id="SchoolId" />
+    <input type="hidden" id="CreateDate" />
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_Information_Data">
+        <legend>
+            <label class="label-input" string="Information_Data"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name_1"></label>
+                        <input type="text" name="SchoolName1" class="form-control input-sm" id="SchoolName1" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Name_1" data-error="Please_enter_your_Name_1"></div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name_2"></label>
+                        <input type="text" name="SchoolName2" class="form-control input-sm" id="SchoolName2" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Name_2" data-error="Please_enter_your_Name_2"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name_3"></label>
+                        <input type="text" name="SchoolName3" class="form-control input-sm" id="SchoolName3" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Name_3" data-error="Please_enter_your_Name_3"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name_4"></label>
+                        <input type="text" name="SchoolName4" class="form-control input-sm" id="SchoolName4" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Name_4" data-error="Please_enter_your_Name_4"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+
+
+            <div class="col-md-12 col-lg-6">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Name_En"></label>
+                        <input type="text" name="SchoolNameEN" class="form-control input-sm direction" id="SchoolNameEN" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_NameEN" data-error="Please_enter_your_NameEN"></div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-12 col-lg-6">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="QID"></label>
+                        <input type="text" name="SchoolQID" id="SchoolQID" maxlength="11" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_QID" data-error="Please_enter_QID"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos " string="BirthDays"></label>
+                        <input id="SchoolBrithDayDate" title="datepicker" style="width: 100%" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_BirthDays" data-error="Please_enter_your_BirthDays"></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos  required-label" for="" string="SocialStatus">
+
+                        </label>
+
+
+                        <select class="w-100 input-sm p-0" id="SchoolSocialStatus" name="SchoolSocialStatus">
+                        </select>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos  required-label" for="" string="BloodType">
+
+                        </label>
+
+                        <select class="w-100 input-sm p-0" id="SchoolBloodType" name="SchoolBloodType">
+                        </select>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="control-group" >
+                        <label class="control control--checkbox" >
+                            <p string="IsMedicalTest"></p>
+                            <input type="checkbox" id="IsMedicalTest" name="IsMedicalTest"   />
+                            <div class="control__indicator">
+                            </div>
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <input type="button" name="next1" class="next action-button" value="Next" string="lblphotos_Health" />
+
+
+    </fieldset>
+
+
+
+
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_Certificates">
+        <legend>
+            <label class="label-input" string="Certificates"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+
+
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="School"></label>
+                        <input type="text" name="SchoolCertificateDegree" class="form-control input-sm" id="SchoolCertificateDegree" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_School_Name" data-error="Please_enter_your_School_Name"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="CertificatesYear"></label>
+                        <input type="text" name="SchoolCertificateDegreeDate" id="SchoolCertificateDegreeDate" maxlength="4" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Certificates_Year" data-error="Please_enter_your_Certificates_Year"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+        <input type="button" name="next2" class="next action-button" value="Next" /> <input type="button" name="previous1" class="previous action-button-previous" value="Previous" />
+
+
+    </fieldset>
+
+
+
+
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_Telephone">
+        <legend>
+            <label class="label-input" string="Telephone"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="mobile_1"></label>
+                        <input type="text" name="SchoolMobile1" id="SchoolMobile1" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_mobile_1" data-error="Please_enter_your_mobile_1"></div>
+                </div>
+
+
+            </div>
+            <div class="col-md-2">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos" string="mobile_2"></label>
+                        <input type="text" name="SchoolMobile2" id="SchoolMobile2" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap">
+                        <label class="label-input-pos" string="MobileHome"></label>
+                        <input type="text" name="SchoolPhoneHome" id="SchoolPhoneHome" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-2">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="MobileFrind"></label>
+                        <input type="text" name="SchoolMobileFriend" id="SchoolMobileFriend" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_MobileFrind" data-error="Please_enter_your_MobileFrind"></div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class=" text-left form-group">
+                    <label class="label-input-pos" string="Fax"></label>
+                    <input type="text" name="SchoolFax" id="SchoolFax" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <input type="button" name="next3" class="next action-button" value="Next" /> <input type="button" name="previous2" class="previous action-button-previous" value="Previous" />
+
+
+
+
+    </fieldset>
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_InfoWrokCurrent">
+        <legend>
+            <label class="label-input" string="InfoWrokCurrent"></label>
+        </legend>
+
+
+        <div class="row">
+
+
+
+
+            <div class="col-md-6">
+                <div class=" text-left form-group">
+                    <div class="  input-wrap is-required">
+                        <label class="label-input-pos required-label" string="jobs"></label>
+
+
+                        <select class="w-100 input-sm" id="IsEmployee" name="IsEmployee">
+                        </select>
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="" data-error="Please_enter_your_Job"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <ul id="panelbar_InfoWrokCurrent">
+            <li id="InfoWrokCurrentPanel">
+                <span string="InfoWrokCurrent"></span>
+                <span>
+                    <span class="k-icon k-i-arrow-right"></span>
+                    <span class="k-icon k-panelbar-expand k-i-arrow-60-down"></span>
+                </span>
+                <div id="cxcc" class="mt-4">
+                    <div class="col-md-12">
+
+
+
+
+
+
+                        <div class="row">
+
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap is-required" id="divMinistry">
+                                        <label class="label-input-pos required-label" id="lblMinistry" string="Ministry"></label>
+                                        <select class="w-100 input-sm p-0" id="Ministry" name="Ministry">
+                                        </select>
+
+
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="enter_your_Ministry" data-error="Please_enter_your_Ministry"></div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap is-required" id="divEmployer">
+                                        <label class="label-input-pos required-label" id="lblEmployer" string="Employer"></label>
+                                        <input type="text" name="SchoolEmployer" class="form-control input-sm" id="SchoolEmployer" />
+
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="enter_your_Employer" data-error="Please_enter_your_Employer"></div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap is-required" id="divTypeWork">
+                                        <label class="label-input-pos required-label" id="lblTypeWork" string="TypeWork"></label>
+                                        <input type="text" name="SchoolTypeWork" class="form-control input-sm" id="SchoolTypeWork" />
+
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="enter_your_TypeWork" data-error="Please_enter_your_TypeWork"></div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap is-required" id="divPhoneWork">
+                                        <label class="label-input-pos required-label" id="lblPhoneWork" string="PhoneWork"></label>
+                                        <input type="text" name="SchoolPhoneWork" id="SchoolPhoneWork" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="enter_your_PhoneWork" data-error="Please_enter_your_PhoneWork"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <label class="label-input-pos" string="FaxWork"></label>
+                                    <input type="text" name="SchoolFaxWork" id="SchoolFaxWork" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap is-required" id="divAddressWork">
+                                        <label class="label-input-pos required-label" id="lblAddressWork" string="AddressWork"></label>
+                                        <input type="text" name="SchoolAddressWork" class="form-control input-sm" id="SchoolAddressWork" />
+
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="enter_your_AddressWork" data-error="Please_enter_your_AddressWork"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+        <input type="button" name="next4" class="next action-button" value="Next" /> <input type="button" name="previous3" class="previous action-button-previous" value="Previous" />
+
+
+    </fieldset>
+    <!--<fieldset class="form-group border mb-lg-5">
+        <legend>
+            <label class="label-input" string="InfoWrokCurrent"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Employer"></label>
+                        <input type="text" name="SchoolEmployer" class="form-control input-sm" id="SchoolEmployer" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Employer" data-error="Please_enter_your_Employer"></div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="TypeWork"></label>
+                        <input type="text" name="SchoolTypeWork" class="form-control input-sm" id="SchoolTypeWork" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_TypeWork" data-error="Please_enter_your_TypeWork"></div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="PhoneWork"></label>
+                        <input type="text" name="SchoolPhoneWork" id="SchoolPhoneWork" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_PhoneWork" data-error="Please_enter_your_PhoneWork"></div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <label class="label-input-pos" string="FaxWork"></label>
+                    <input type="text" name="SchoolFaxWork" id="SchoolFaxWork" maxlength="8" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="AddressWork"></label>
+                        <input type="text" name="SchoolAddressWork" class="form-control input-sm" id="SchoolAddressWork" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_AddressWork" data-error="Please_enter_your_AddressWork"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </fieldset>-->
+
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_InfoHomeAddress">
+        <legend>
+            <label class="label-input" string="InfoHomeAddress"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="Zone"></label>
+                        <input type="text" name="SchoolZone" class="form-control input-sm" id="SchoolZone" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_Zone" data-error="Please_enter_your_Zone"></div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="StreetName"></label>
+                        <input type="text" name="SchoolStreetName" class="form-control input-sm" id="SchoolStreetName" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_StreetName" data-error="Please_enter_your_StreetName"></div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="input-wrap is-required">
+                        <label class="label-input-pos required-label" string="HomeNo"></label>
+                        <input type="text" name="SoliderHomeNo" id="SoliderHomeNo" maxlength="4" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+
+                    </div>
+                    <div class=" mt-1 is-helpful" data-helper="enter_your_HomeNo" data-error="Please_enter_your_HomeNo"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+        <input type="button" name="next5" class="next action-button" value="Next" /> <input type="button" name="previous4" class="previous action-button-previous" value="Previous" />
+
+
+
+    </fieldset>
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_Attachment">
+        <legend>
+            <label class="label-input" string="Attachment"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+
+
+        <div class="row">
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_Passport" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_Passport').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-Passport" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_Passport()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_Passport" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_Passport" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_Passport"> </p>
+                </div>
+            </div>
+
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_QID" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_QID').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-QID" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_QID()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_QID" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_QID" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_QID">  </p>
+                </div>
+            </div>
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_person" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_person').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-person" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_person()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_person" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_person" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_person">  </p>
+                </div>
+            </div>
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_Certificates" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_Certificates').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-Certificates" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_Certificates()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_Certificates" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_Certificates" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_CertificationSchool">  </p>
+                </div>
+            </div>
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_workletter_MinistryDevelopment" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_workletter_MinistryDevelopment').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-workletter_MinistryDevelopment" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_workletter_MinistryDevelopment()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_workletter_MinistryDevelopment" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_workletter_MinistryDevelopment" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_workletter_MinistryDevelopment">  </p>
+                </div>
+            </div>
+
+
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_married" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_married').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-married" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_married()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_married" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_married" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_married">  </p>
+                </div>
+            </div>
+
+
+
+            <div class="card ml-4 mt-4 mb-4" style="width: 18rem; padding: 50px">
+                <img src="../../assets/images/bg1.png" id="preview_Health" alt="Card image cap"
+                     class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_Health').val(''); }">
+                <div class="row imgbtn mt-2 container m-0">
+                    <button id="delete-image-Health" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_Health()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                    <input type="file" name="files" id="photos_Health" class="  btn  btn-primary p-0" style="max-height:20px" />
+                    <input type="hidden" id="ImageName_Health" />
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text" string="lblphotos_Health">  </p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <input type="button" name="next6" class="next action-button" value="Next" /> <input type="button" name="previous5" class="previous action-button-previous" value="Previous" />
+
+
+    </fieldset>
+
+
+
+    <fieldset class="form-group border mb-lg-5" id="fs_ChkDelay_Exemption_Exception">
+        <legend>
+            <label class="label-input" string="ChkDelay_Exemption_Exception"></label>
+        </legend>
+
+        <div class="row ">
+            <div class=" col-md-12 col-lg-6">
+                <div class="control-group">
+                    <label class="control control--checkbox">
+                        <p string="ChkDelay_Exemption_Exception"></p>
+                        <input type="checkbox" id="ChkDelay_Exemption_Exception" name="ChkDelay_Exemption_Exception" onchange="changeChkDelay_Exemption_Exception(this)" />
+                        <div class="control__indicator">
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <ul id="panelbar_Postponement_exemption">
+            <li id="Postponement_exemptionPanel">
+                <span string="Postponement_exemption"></span>
+                <span>
+                    <span class="k-icon k-i-arrow-right"></span>
+                    <span class="k-icon k-panelbar-expand k-i-arrow-60-down"></span>
+                </span>
+                <div id="cxcc" class="mt-4">
+                    <div class="col-md-12">
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class=" text-left form-group">
+                                    <div class="input-wrap" id="divPostponement_Exemption_Requirements">
+                                        <label class="label-input-pos" string="Reasons_Postponement_Exemption_Requirements" id="lblPostponement_Exemption_Requirements"></label>
+
+
+                                        <select class="w-100 input-sm p-0" id="School_Delay_Exemption_Exception" name="School_Delay_Exemption_Exception">
+                                        </select>
+
+                                    </div>
+                                    <div class=" mt-1 is-helpful" data-helper="" data-error="PleaseSelect"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class=" text-left form-group">
+                                    <div class="card" style="width: 18rem; padding: 20px">
+                                        <img src="../../assets/images/bg1.png" id="preview_other" alt="Card image cap"
+                                             class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_other').val(''); }">
+                                        <div class="row imgbtn mt-2 container m-0">
+                                            <button id="delete-image-other" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_other()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                                            <input type="file" name="files" id="photos_other" class="  btn  btn-primary p-0" style="max-height:20px" />
+                                            <input type="hidden" id="ImageName_other" />
+
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text" id="lblphotos_School_Delay_Exemption_Exception"> </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class=" text-left form-group">
+                                    <div class="  input-wrap">
+                                        <label class="label-input-pos" for="" string="Notes_Other">
+
+                                        </label>
+
+                                        <textarea class="form-control rounded-0" id="Notes_Other" name="Notes_Other"  disabled="disabled" rows="4" cols="6"></textarea>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+        <input type="button" name="submit" class="next action-button" onclick="onchange_submit(this)" />  <input type="button" name="previous6" class="previous action-button-previous" value="Previous" />
+
+
+
+
+    </fieldset>
+
+
+
+    <fieldset>
+        <div class="form-card">
+            <div class="row">
+                <!--<div class="col-7">
+                    <h2 class="fs-title">Finish:</h2>
+                </div>
+                <div class="col-5">
+                    <h2 class="steps">Step 4 - 4</h2>
+                </div>-->
+            </div> <br><br> <br>
+            <div class="row justify-content-center">
+                <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+            </div> <br><br>
+            <div class="row justify-content-center">
+                <div class="col-7 text-center">
+                    <h5 class="purple-text text-center" string="SaveApplicationDone"></h5>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <!--<fieldset class="form-group border mb-lg-5">
+        <legend>
+            <label class="label-input" string="Postponement_exemption"></label>
+        </legend>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                &sdot;
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class=" text-left form-group">
+                    <div class="input-wrap">
+                        <label class="label-input-pos" string="Reasons_Postponement_Exemption_Requirements"></label>
+
+
+                        <select class="w-100 input-sm p-0" id="School_Delay_Exemption_Exception" name="School_Delay_Exemption_Exception">
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3">
+                <div class=" text-left form-group">
+                    <div class="card" style="width: 18rem; padding: 50px">
+                        <img src="../../assets/images/bg1.png" id="preview_other" alt="Card image cap"
+                             class="card-img-top" onerror="if (this.src != '../../assets/images/bg1.png') { this.src = '../../assets/images/bg1.png';$('#ImageName_other').val(''); }">
+                        <div class="row imgbtn mt-2 container m-0">
+                            <button id="delete-image" data-toggle="tooltip" data-placement="bottom" title="Delete" type="button" class="delete-image" onclick="DeleteImg_other()"><i class="metismenu-icon pe-7s-close" aria-disabled="true"></i></button>
+
+                            <input type="file" name="files" id="photos_other" class="  btn  btn-primary p-0" style="max-height:20px" />
+                            <input type="hidden" id="ImageName_other" />
+
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text" id="lblphotos_School_Delay_Exemption_Exception"> </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </fieldset>-->
+    <!--<div class="row">
+
+        <div CLASS="col-md-12 col-lg-12  mt-3">
+            <div class="  form-group bttuncompany m-0">
+                <button id="UpdateCompany" type="button" class="browse btn btn-lg btn-primary mx-auto" string="Save" onclick="SaveSchool()" style="width:300px"></button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+        <div CLASS="col-md-12 ">
+            <div class="alert alert-dismissible fade  " role="alert" id="ResultMessage">
+                <div id="ResultTxt">
+
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="row">
+        <div CLASS="col-md-12 ">
+            <div class="alert alert-dismissible fade  " role="alert" id="ResultMessage">
+                <div id="ResultTxt">
+
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="hidden" id="SchoolId" value="" />
+    <input type="hidden" id="StatusID" value="" />
+    <input type="hidden" id="ApprovedBy" />
+    <input type="hidden" id="ModifiedBy" />
+    <input type="hidden" id="InsertedBy" />
+    <input type="hidden" id="ApprovedDate" />
+    <input type="hidden" id="CreateDate" />
+    <input type="hidden" id="LastModifyDate" />
+    <!--<div class="app-modal-footer d-flex justify-content-center mt-3 invisible" id="btnForm">
+        <button type="button" class="browse btn btn-primary mr-2 w-100" onclick="SaveSchool()" string="Save" id="Save">save</button>-->
+    <!--<a onclick="Destroy()" type="button" class="browse btn  btn-danger text-white mx-auto  w-100" string="Close" id="Close">cancel</a>-->
+    <!--</div>-->
+    <!--<div class="clearfix">&nbsp;</div>
+
+    <div class="row">
+        <div CLASS="col-md-12 ">
+            <div class="alert alert-dismissible fade  " role="alert" id="ResultMessage">
+                <div id="ResultTxt">
+
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>-->
+
+
+
+
+
+</form>
+<script src="../../Scripts/pages/School.js"></script>
+<script src="../../assets/js/Validations/Validation.js"></script>
+
