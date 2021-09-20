@@ -472,10 +472,14 @@
 
   "IsMedicalTest": "Was the examination carried out by the Unified Committee of Officers?",
 
+  "High_School": "High School",
+  "Without_High_School": "without High School",
 
   "lblphotos_Transcript": "Transcript",
   "enter_your_Job": "enter your Job",
-  "Please_enter_your_Job": "Please enter your Job"
+  "Please_enter_your_Job": "Please enter your Job",
+  "Defors": "Defors",
+  "wiedow": "wiedow/wiedower"
 
 }
 

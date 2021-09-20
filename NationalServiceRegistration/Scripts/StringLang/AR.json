@@ -483,8 +483,14 @@
   "Please_enter_your_Ministry": "الرجاء اختيار اسم الوزاره",
   "enter_your_Ministry": "اختيار اسم الوزاره",
 
+
+  "High_School": "ثانوية عامة",
+  "Without_High_School": "دون الثانوية",
+
   "lblphotos_Transcript": "كشف الدرجات الجامعيه",
   "enter_your_Job": "اختيار موظف / غير موظف",
-  "Please_enter_your_Job": "الرجاء اختيار موظف / غير موظف"
+  "Please_enter_your_Job": "الرجاء اختيار موظف / غير موظف",
+  "Defors": "مطلق",
+  "wiedow": "ارمل /ارمله"
 }
 

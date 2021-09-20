@@ -14,6 +14,15 @@ var current = 1;
 
 
 
+
+var data_CertificateDegree = [
+    { 'id': '4', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
+    { 'id': '1', 'Name': DBSTRING['University'], 'NameAr': DBSTRING['University'] },
+    { 'id': '2', 'Name': DBSTRING['High_School'], 'NameAr': DBSTRING['High_School'] },
+    { 'id': '3', 'Name': DBSTRING['Without_High_School'], 'NameAr': DBSTRING['Without_High_School'] }
+];
+
+
 var data_Ministry = [
     { 'id': '', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
     { 'id': '1', 'Name': "وزاره العمل", 'NameAr': "وزاره العمل" },
@@ -36,9 +45,13 @@ var data_ManagementAction = [
 
 var data_SoldierSocialStatus = [
     { 'id': '', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
-    { 'id': '1', 'Name': DBSTRING['Married'], 'NameAr': DBSTRING['Married'] },
-    { 'id': '2', 'Name': DBSTRING['single'], 'NameAr': DBSTRING['single'] }
+    { 'id': '1', 'Name': DBSTRING['single'], 'NameAr': DBSTRING['single'] },
+    { 'id': '2', 'Name': DBSTRING['Married'], 'NameAr': DBSTRING['Married'] },
+    { 'id': '3', 'Name': DBSTRING['Defors'], 'NameAr': DBSTRING['Defors'] },
+    { 'id': '4', 'Name': DBSTRING['wiedow'], 'NameAr': DBSTRING['wiedow'] }
 ];
+
+
 
 
 
@@ -115,6 +128,53 @@ var data_Reasons_Postponement_Exemption_Requirements = [
     { 'id': '45', 'Name': "اسباب اخرى", 'NameAr': "اسباب اخرى" }
 ];
 
+
+
+
+
+
+function fill_Ministry() {
+
+
+    var Lang = sessionStorage['lang'];
+
+    var DataSource_Ministry = new kendo.data.DataSource({ data: data_Ministry });
+
+    $("#Ministry").kendoDropDownList({
+        dataTextField: Lang === 'ar' ? "NameAr" : "Name",
+        dataValueField: "id",
+        template: Lang === 'ar' ? '<i class="#:data.Flag # flag"></i> ' + '#:data.NameAr #' : '<i class="#:data.Flag # flag"></i> ' + '#:data.Name #',
+        dataSource: DataSource_Ministry,
+        filter: "contains",
+        suggest: true
+
+
+
+    });
+}
+
+
+
+function fill_CertificateDegree() {
+
+
+    var Lang = sessionStorage['lang'];
+
+    var DataSource_CertificateDegree = new kendo.data.DataSource({ data: data_CertificateDegree });
+
+    $("#SoldierCertificateDegree").kendoDropDownList({
+        dataTextField: Lang === 'ar' ? "NameAr" : "Name",
+        dataValueField: "id",
+        template: Lang === 'ar' ? '<i class="#:data.Flag # flag"></i> ' + '#:data.NameAr #' : '<i class="#:data.Flag # flag"></i> ' + '#:data.Name #',
+        dataSource: DataSource_CertificateDegree,
+        filter: "contains",
+        suggest: true
+
+
+
+    });
+
+}
 
 
 
@@ -542,6 +602,7 @@ function ready_Page() {
         Fill_Jobs();
         Fill_SoldierBloodType();
         fill_Ministry();
+        fill_CertificateDegree();
         Fill_Reasons_Postponement_Exemption_Requirements();
 
 
@@ -907,7 +968,10 @@ function api_callAddmin(data) {
     fillDropdown('ManagementAction', data_ManagementAction, data.datalist.managementAction, false)
     fillDropdown('SoldierSocialStatus', data_SoldierSocialStatus, data.datalist.soldierSocialStatus, false)
     fillDropdown('IsEmployee', data_Jobs, data.datalist.isEmployee, false)
-    fillDropdown('Ministry', data_Jobs, data.datalist.ministry, false)
+    fillDropdown('Ministry', data_Ministry, data.datalist.ministry, false)
+    fillDropdown('SoldierCertificateDegree', data_CertificateDegree, data.datalist.soldierCertificateDegree, false)
+
+    
     fillDropdown('SoldierBloodType', data_SoldierBloodType, data.datalist.soldierBloodType, false)
     fillDropdown('Soldier_Delay_Exemption_Exception', data_Reasons_Postponement_Exemption_Requirements, data.datalist.soldier_Delay_Exemption_Exception, false)
 
@@ -918,6 +982,11 @@ function api_callAddmin(data) {
 
     var dropdownlist_ManagementAction = $("#ManagementAction").data("kendoDropDownList");
     dropdownlist_ManagementAction.enable(true);
+
+
+   
+
+
 
     $('#Management_Notes').attr('disabled', false);
 
@@ -951,7 +1020,7 @@ function api_callAddmin(data) {
     $('#SoldierName4').val(data.datalist.soldierName4);
     $('#SoldierNameEN').val(data.datalist.soldierNameEN);
     $('#SoldierQID').val(data.datalist.soldierQID);
-    $('#SoldierCertificateDegree').val(data.datalist.soldierCertificateDegree);
+    /*$('#SoldierCertificateDegree').val(data.datalist.soldierCertificateDegree);*/
     $('#SoldierCertificateDegreeDate').val(data.datalist.soldierCertificateDegreeDate);
     $('#SoldierMobile1').val(data.datalist.soldierMobile1);
     $('#SoldierMobile2').val(data.datalist.soldierMobile2);
@@ -1067,7 +1136,7 @@ function api_callAddmin(data) {
             target: '_blank',
             href: img_url_Clearance
         });
-       
+
         $('#lbl__other').attr({
             target: '_blank',
             href: img_url_other
@@ -1171,7 +1240,7 @@ var successCallBack = function (data) {
     }
 
 
-    
+
 
     changeDelay_Exemption_Exception(data.datalist.isAddDelay_Exemption_Exception)
 
@@ -1184,7 +1253,7 @@ var successCallBack = function (data) {
     $('#SoldierName4').val(data.datalist.soldierName4);
     $('#SoldierNameEN').val(data.datalist.soldierNameEN);
     $('#SoldierQID').val(data.datalist.soldierQID);
-    $('#SoldierCertificateDegree').val(data.datalist.soldierCertificateDegree);
+/*    $('#SoldierCertificateDegree').val(data.datalist.soldierCertificateDegree);*/
     $('#SoldierCertificateDegreeDate').val(data.datalist.soldierCertificateDegreeDate);
     $('#SoldierMobile1').val(data.datalist.soldierMobile1);
     $('#SoldierMobile2').val(data.datalist.soldierMobile2);
@@ -1202,6 +1271,14 @@ var successCallBack = function (data) {
 
     var ddlMinistry = $("#Ministry").data("kendoDropDownList");
     ddlMinistry.value(data.datalist.ministry);
+
+
+    var ddlSoldierCertificateDegree = $("#SoldierCertificateDegree").data("kendoDropDownList");
+    ddlSoldierCertificateDegree.value(data.datalist.soldierCertificateDegree);
+
+
+
+
 
     var ddlIsEmployee = $("#IsEmployee").data("kendoDropDownList");
     ddlIsEmployee.value(data.datalist.isEmployee);
@@ -1371,7 +1448,7 @@ var SaveSoldier = function (next) {
             obj.IsEmployee = $('#IsEmployee').val();
             obj.IsAddDelay_Exemption_Exception = $('#IsAddDelay_Exemption_Exception').is(':checked');
             obj.IsMedicalTest = $('#IsMedicalTest').is(':checked');
-            
+
 
             obj.ImageName_Passport = $('#ImageName_Passport').val();
             obj.ImageName_Clearance = $('#ImageName_Clearance').val();

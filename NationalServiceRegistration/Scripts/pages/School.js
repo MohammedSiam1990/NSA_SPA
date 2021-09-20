@@ -15,6 +15,13 @@ var current = 1;
 
 
 
+var data_CertificateDegree = [
+    { 'id': '4', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
+    { 'id': '2', 'Name': DBSTRING['High_School'], 'NameAr': DBSTRING['High_School'] },
+    { 'id': '3', 'Name': DBSTRING['Without_High_School'], 'NameAr': DBSTRING['Without_High_School'] }
+];
+
+
 var data_Ministry = [
     { 'id': '', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
     { 'id': '1', 'Name': "وزاره العمل", 'NameAr': "وزاره العمل" },
@@ -37,8 +44,10 @@ var data_ManagementAction = [
 
 var data_SchoolSocialStatus = [
     { 'id': '', 'Name': DBSTRING['PleaseSelect'], 'NameAr': DBSTRING['PleaseSelect'] },
-    { 'id': '1', 'Name': DBSTRING['Married'], 'NameAr': DBSTRING['Married'] },
-    { 'id': '2', 'Name': DBSTRING['single'], 'NameAr': DBSTRING['single'] }
+    { 'id': '1', 'Name': DBSTRING['single'], 'NameAr': DBSTRING['single'] },
+    { 'id': '2', 'Name': DBSTRING['Married'], 'NameAr': DBSTRING['Married'] },
+    { 'id': '3', 'Name': DBSTRING['Defors'], 'NameAr': DBSTRING['Defors'] },
+    { 'id': '4', 'Name': DBSTRING['wiedow'], 'NameAr': DBSTRING['wiedow'] }
 ];
 
 
@@ -140,6 +149,39 @@ function fill_Ministry() {
     });
 
 }
+
+
+
+
+function fill_CertificateDegree() {
+
+
+    var Lang = sessionStorage['lang'];
+
+    var DataSource_CertificateDegree = new kendo.data.DataSource({ data: data_CertificateDegree });
+
+    $("#SchoolCertificateDegree").kendoDropDownList({
+        dataTextField: Lang === 'ar' ? "NameAr" : "Name",
+        dataValueField: "id",
+        template: Lang === 'ar' ? '<i class="#:data.Flag # flag"></i> ' + '#:data.NameAr #' : '<i class="#:data.Flag # flag"></i> ' + '#:data.Name #',
+        dataSource: DataSource_CertificateDegree,
+        filter: "contains",
+        suggest: true
+
+
+
+    });
+
+}
+
+
+
+
+
+
+
+
+
 function fill_ManagementAction() {
 
 
@@ -543,6 +585,7 @@ function ready_Page() {
         Fill_Jobs();
         Fill_SchoolBloodType();
         fill_Ministry();
+        fill_CertificateDegree();
         Fill_Reasons_Postponement_Exemption_Requirements();
 
 
@@ -920,7 +963,10 @@ function api_callAddmin(data) {
     fillDropdown('ManagementAction', data_ManagementAction, data.datalist.managementAction, false)
     fillDropdown('SchoolSocialStatus', data_SchoolSocialStatus, data.datalist.schoolSocialStatus, false)
     fillDropdown('IsEmployee', data_Jobs, data.datalist.isEmployee, false)
-    fillDropdown('Ministry', data_Jobs, data.datalist.ministry, false)
+    fillDropdown('Ministry', data_Ministry, data.datalist.ministry, false)
+    fillDropdown('SchoolCertificateDegree', data_CertificateDegree, data.datalist.schoolCertificateDegree, false)
+
+    
     fillDropdown('SchoolBloodType', data_SchoolBloodType, data.datalist.schoolBloodType, false)
     fillDropdown('School_Delay_Exemption_Exception', data_Reasons_Postponement_Exemption_Requirements, data.datalist.school_Delay_Exemption_Exception, false)
 
@@ -958,7 +1004,7 @@ function api_callAddmin(data) {
     $('#SchoolNameEN').val(data.datalist.schoolNameEN);
     $('#SchoolQID').val(data.datalist.schoolQID);
 
-    $('#SchoolCertificateDegree').val(data.datalist.schoolCertificateDegree);
+   /* $('#SchoolCertificateDegree').val(data.datalist.schoolCertificateDegree);*/
     $('#SchoolCertificateDegreeDate').val(data.datalist.schoolCertificateDegreeDate);
     $('#SchoolSpecialization').val(data.datalist.schoolSpecialization);
     $('#SchoolLocation').val(data.datalist.schoolLocation);
@@ -1180,7 +1226,7 @@ var successCallBack = function (data) {
     $('#SchoolNameEN').val(data.datalist.schoolNameEN);
     $('#SchoolQID').val(data.datalist.schoolQID);
 
-    $('#SchoolCertificateDegree').val(data.datalist.schoolCertificateDegree);
+  /*  $('#SchoolCertificateDegree').val(data.datalist.schoolCertificateDegree);*/
     $('#SchoolCertificateDegreeDate').val(data.datalist.schoolCertificateDegreeDate);
     $('#SchoolSpecialization').val(data.datalist.schoolSpecialization);
     $('#SchoolLocation').val(data.datalist.schoolLocation);
@@ -1208,6 +1254,10 @@ var successCallBack = function (data) {
 
     var ddlMinistry = $("#Ministry").data("kendoDropDownList");
     ddlMinistry.value(data.datalist.ministry);
+
+
+    var ddlSchoolCertificateDegree = $("#SchoolCertificateDegree").data("kendoDropDownList");
+    ddlSchoolCertificateDegree.value(data.datalist.schoolCertificateDegree);
 
     var ddlIsEmployee = $("#IsEmployee").data("kendoDropDownList");
     ddlIsEmployee.value(data.datalist.isEmployee);
